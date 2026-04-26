@@ -1,6 +1,16 @@
 @use '../../styles/index.module' as *;
 
 .container {
-	height: 100dvh;
-	background: linear-gradient(to bottom left, color(background), color(primary));
+    height: 100dvh;
+    background: linear-gradient(to bottom left, color(background), color(primary));
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    overflow: auto;
+
+    &__section {
+        min-height: 100dvh;
+        padding: space(xl) space(md);
+        font-family: $base-font;
+    }
 }

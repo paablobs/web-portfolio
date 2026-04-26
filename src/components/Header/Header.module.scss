@@ -1,0 +1,57 @@
+@use '../../styles/index.module' as *;
+
+.header {
+	width: 100%;
+	box-sizing: border-box;
+	background-color: transparent;
+	display: flex;
+	align-items: center;
+	padding: space(md);
+	backdrop-filter: blur(10px);
+	justify-content: space-between;
+	font-family: $base-font;
+
+	&__navigation {
+		display: flex;
+		align-items: center;
+		gap: space(sm);
+	}
+
+	&__navLink {
+		padding: space(xs) space(sm);
+		text-decoration: none;
+		color: color(text);
+		transition: color 160ms ease;
+
+		&:hover,
+		&:focus-visible {
+			color: color(text-hover);
+		}
+
+		&:active {
+			color: color(active);
+		}
+	}
+
+	&__cvButton {
+		padding: space(xs) space(md);
+		border-radius: radius(md);
+		border: 1px solid color(text);
+		background: color(text);
+		color: color(background);
+		text-decoration: none;
+		font-weight: font-weight(medium);
+		transition: background-color 160ms ease, border-color 160ms ease;
+
+		&:hover,
+		&:focus-visible {
+			background: color(button-hover);
+			border-color: color(button-hover);
+		}
+
+		&:active {
+			background: color(active);
+			border-color: color(active);
+		}
+	}
+}
