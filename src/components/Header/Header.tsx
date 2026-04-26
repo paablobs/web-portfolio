@@ -1,5 +1,9 @@
 import styles from './Header.module.scss'
 
+type HeaderProps = {
+    isVisible: boolean
+}
+
 const NAV_BUTTONS = [
     { label: 'About', link: '#about' },
     { label: 'Experience', link: '#experience' },
@@ -7,7 +11,7 @@ const NAV_BUTTONS = [
     { label: 'Contact', link: '#contact' },
 ]
 
-const Header = () => {
+const Header = ({ isVisible }: HeaderProps) => {
     const renderNavigation = () =>
         NAV_BUTTONS.map(button => (
             <a
@@ -20,7 +24,9 @@ const Header = () => {
         ))
 
     return (
-        <div className={styles.header}>
+        <div
+            className={`${styles.header} ${!isVisible ? styles['header--hidden'] : ''}`}
+        >
             <div>My Logo</div>
             <div className={styles.header__navigation}>
                 {renderNavigation()}
