@@ -30,9 +30,6 @@ const Header = ({ isVisible }: HeaderProps) => {
             <div>My Logo</div>
             <div className={styles.header__navigation}>
                 {renderNavigation()}
-                <a href="#" download className={styles.header__cvButton}>
-                    Download CV
-                </a>
             </div>
         </div>
     )

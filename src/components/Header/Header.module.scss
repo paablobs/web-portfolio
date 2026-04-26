@@ -1,67 +1,48 @@
 @use '../../styles/index.module' as *;
 
 .header {
-	width: 100%;
-	box-sizing: border-box;
-	background-color: transparent;
-	position: sticky;
-	top: 0;
-	z-index: 200;
-	display: flex;
-	align-items: center;
-	padding: space(md);
-	backdrop-filter: blur(10px);
-	justify-content: space-between;
-	font-family: $base-font;
-	transition: transform 220ms ease, opacity 220ms ease;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    padding: space(md);
+    backdrop-filter: blur(10px);
+    justify-content: space-between;
+    transition:
+        transform 220ms ease,
+        opacity 220ms ease;
 
-	&--hidden {
-		transform: translateY(-100%);
-		opacity: 0;
-		pointer-events: none;
-	}
+    &--hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+    }
 
-	&__navigation {
-		display: flex;
-		align-items: center;
-		gap: space(sm);
-	}
+    &__navigation {
+        font-family: $base-font;
+        font-size: font-size(md);
+        display: flex;
+        align-items: center;
+        gap: space(sm);
+    }
 
-	&__navLink {
-		padding: space(xs) space(sm);
-		text-decoration: none;
-		color: color(text);
-		transition: color 160ms ease;
+    &__navLink {
+        padding: space(xs) space(sm);
+        text-decoration: none;
+        color: color(text);
+        transition: color 160ms ease;
 
-		&:hover,
-		&:focus-visible {
-			color: color(text-hover);
-		}
+        &:hover,
+        &:focus-visible {
+            color: color(text-hover);
+        }
 
-		&:active {
-			color: color(active);
-		}
-	}
-
-	&__cvButton {
-		padding: space(xs) space(md);
-		border-radius: radius(md);
-		border: 1px solid color(text);
-		background: color(text);
-		color: color(background);
-		text-decoration: none;
-		font-weight: font-weight(medium);
-		transition: background-color 160ms ease, border-color 160ms ease;
-
-		&:hover,
-		&:focus-visible {
-			background: color(button-hover);
-			border-color: color(button-hover);
-		}
-
-		&:active {
-			background: color(active);
-			border-color: color(active);
-		}
-	}
+        &:active {
+            color: color(active);
+        }
+    }
 }
