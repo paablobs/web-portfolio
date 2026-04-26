@@ -1,0 +1,6 @@
+@use '../../styles/index.module' as *;
+
+.container {
+	height: 100dvh;
+	background: linear-gradient(to bottom left, color(background), color(primary));
+}
