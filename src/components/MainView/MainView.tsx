@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import Header from '../Header/Header'
 import Summary from '../Summary/Summary'
 import styles from './MainView.module.scss'
+import About from '../About/About'
 
 const SCROLL_TOLERANCE = 4
 
@@ -60,8 +61,7 @@ const MainView = () => {
                 <Summary />
             </section>
             <section id='about' className={styles.container__section}>
-                <h2>About</h2>
-                <p>Sobre mi</p>
+                <About />
             </section>
             <section id='experience' className={styles.container__section}>
                 <h2>Experience</h2>

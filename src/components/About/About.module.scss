@@ -1,0 +1,149 @@
+@use '../../styles/index.module' as *;
+
+.about {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		width: min(1100px, 100%);
+	}
+
+	&__body {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: clamp(3rem, 6vw, 6rem);
+		width: 100%;
+	}
+
+	&__media {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: space(lg);
+		flex-shrink: 0;
+		align-items: center;
+	}
+
+	&__avatar {
+		width: 400px;
+		height: 400px;
+		border-radius: 50%;
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+
+	&__panel {
+		display: flex;
+		flex-direction: column;
+		gap: space(xl);
+		flex: 1;
+		max-width: 620px;
+	}
+
+	&__title,
+	&__text,
+	&__cvButton {
+		color: color(text);
+		font-family: $base-font;
+	}
+
+	&__title {
+		font-size: font-size(xl3);
+		font-weight: font-weight(bold);
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		gap: space(md);
+		font-size: font-size(lg);
+		font-weight: font-weight(regular);
+		line-height: 1.65;
+		text-align: left;
+
+		p {
+			margin: 0;
+		}
+	}
+
+	&__cvButton {
+		align-self: flex-start;
+		padding: space(sm) space(md);
+		border-radius: radius(md);
+		border: 1px solid color(text);
+		background: color(text);
+		color: color(background);
+		text-decoration: none;
+		font-weight: font-weight(medium);
+		transition:
+			background-color 160ms ease,
+			border-color 160ms ease;
+
+		&:hover,
+		&:focus-visible {
+			background: color(button-hover);
+			border-color: color(button-hover);
+		}
+
+		&:active {
+			background: color(active);
+			border-color: color(active);
+		}
+	}
+
+	@media (max-width: 900px) {
+		&__content {
+			width: min(700px, 100%);
+		}
+
+		&__body {
+			flex-direction: column;
+			align-items: center;
+			gap: space(lg);
+		}
+
+		&__media {
+			align-items: center;
+		}
+
+		&__panel {
+			align-items: center;
+			max-width: none;
+		}
+
+		&__title,
+		&__text {
+			text-align: center;
+		}
+
+		&__cvButton {
+			align-self: center;
+		}
+	}
+
+	@media (max-width: 600px) {
+		&__content {
+			gap: space(md);
+		}
+
+		&__avatar {
+			width: min(280px, 80vw);
+			height: min(280px, 80vw);
+		}
+
+		&__title {
+			font-size: font-size(xl2);
+		}
+
+		&__text {
+			font-size: font-size(md);
+			line-height: 1.6;
+		}
+	}
+}
