@@ -4,7 +4,7 @@ import Summary from '../Summary/Summary'
 import styles from './MainView.module.scss'
 import About from '../About/About'
 
-const SCROLL_TOLERANCE = 4
+const SCROLL_TOLERANCE = 6
 
 const MainView = () => {
     const containerRef = useRef<HTMLDivElement>(null)
