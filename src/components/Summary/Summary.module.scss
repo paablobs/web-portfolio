@@ -45,7 +45,7 @@
         font-family: $base-font;
         font-size: 120px;
         font-weight: font-weight(bold);
-        color: rgba(#d7dbe0, 0.38);
+        color: rgba(color(text), 0.38);
     }
 
     &__description {
