@@ -3,14 +3,12 @@
 .about {
 	height: 100%;
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	margin-top: space(xl3);
 
 	&__content {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		width: min(1100px, 100%);
 	}
 
 	&__body {
@@ -38,34 +36,60 @@
 		flex-shrink: 0;
 	}
 
-	&__panel {
-		display: flex;
-		flex-direction: column;
-		gap: space(xl);
-		flex: 1;
-		max-width: 620px;
-	}
-
 	&__text,
+	&__stackTitle,
 	&__cvButton {
 		color: color(text);
 		font-family: $base-font;
 	}
 
-
-
-	&__text {
+	&__panel {
 		display: flex;
 		flex-direction: column;
-		gap: space(md);
+		gap: space(xl);
+		flex: 1;
+	}
+
+	&__text {
+		margin: 0;
 		font-size: font-size(lg);
 		font-weight: font-weight(regular);
-		line-height: 1.65;
+		line-height: line-height(normal);
 		text-align: left;
+	}
 
-		p {
-			margin: 0;
-		}
+	&__stack {
+		display: flex;
+		flex-direction: column;
+		gap: space(sm);
+	}
+
+	&__stackTitle {
+		margin: 0;
+		font-size: font-size(md);
+		font-weight: font-weight(medium);
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+
+	&__stackList {
+		display: flex;
+		flex-wrap: wrap;
+		gap: space(sm);
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	&__stackItem {
+		padding: space(xs) space(sm);
+		border-radius: radius(sm);
+		border: 1px solid color(text);
+		background: color(primary);
+		color: color(text);
+		font-size: font-size(sm);
+		font-weight: font-weight(medium);
+		line-height: line-height(normal);
 	}
 
 	&__cvButton {
@@ -110,11 +134,18 @@
 
 		&__panel {
 			align-items: center;
-			max-width: none;
 		}
 
 		&__text {
 			text-align: center;
+		}
+
+		&__stack {
+			align-items: center;
+		}
+
+		&__stackList {
+			justify-content: center;
 		}
 
 		&__cvButton {
@@ -134,7 +165,7 @@
 
 		&__text {
 			font-size: font-size(md);
-			line-height: 1.6;
+			line-height: line-height(normal);
 		}
 	}
 }
