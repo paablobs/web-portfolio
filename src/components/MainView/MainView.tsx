@@ -61,18 +61,31 @@ const MainView = () => {
                 <Summary />
             </section>
             <section id='about' className={styles.container__section}>
+                <div className={styles.container__sectionTitle}>
+                    <span>About me</span>
+                    <div className={styles.container__sectionTitleLine} />
+                </div>
                 <About />
             </section>
             <section id='experience' className={styles.container__section}>
-                <h2>Experience</h2>
+                <div className={styles.container__sectionTitle}>
+                    <span>Experience</span>
+                    <div className={styles.container__sectionTitleLine} />
+                </div>
                 <p>Mi experiencia profesional</p>
             </section>
             <section id='work' className={styles.container__section}>
-                <h2>Work</h2>
+                <div className={styles.container__sectionTitle}>
+                    <span>Work</span>
+                    <div className={styles.container__sectionTitleLine} />
+                </div>
                 <p>Proyectos y trabajos destacados</p>
             </section>
             <section id='contact' className={styles.container__section}>
-                <h2>Contact</h2>
+                <div className={styles.container__sectionTitle}>
+                    <span>Contact</span>
+                    <div className={styles.container__sectionTitleLine} />
+                </div>
                 <p>Canales para contactarme</p>
             </section>
             <button type='button' className={styles.container__toTopButton} onClick={handleScrollToTop}>

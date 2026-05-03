@@ -46,17 +46,13 @@
 		max-width: 620px;
 	}
 
-	&__title,
 	&__text,
 	&__cvButton {
 		color: color(text);
 		font-family: $base-font;
 	}
 
-	&__title {
-		font-size: font-size(xl3);
-		font-weight: font-weight(bold);
-	}
+
 
 	&__text {
 		display: flex;
@@ -117,7 +113,6 @@
 			max-width: none;
 		}
 
-		&__title,
 		&__text {
 			text-align: center;
 		}
@@ -135,10 +130,6 @@
 		&__avatar {
 			width: min(280px, 80vw);
 			height: min(280px, 80vw);
-		}
-
-		&__title {
-			font-size: font-size(xl2);
 		}
 
 		&__text {

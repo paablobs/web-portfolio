@@ -14,6 +14,28 @@
         font-family: $base-font;
     }
 
+    &__sectionTitle {
+        display: flex;
+        align-items: center;
+        gap: space(md);
+        padding: space(xl) 0 space(lg);
+        color: color(text);
+        font-family: $base-font;
+        font-size: font-size(xl2);
+        font-weight: font-weight(bold);
+
+        span {
+            white-space: nowrap;
+        }
+    }
+
+    &__sectionTitleLine {
+        flex: 1;
+        height: 1px;
+        background-color: color(text);
+        opacity: 0.3;
+    }
+
     &__toTopButton {
         position: fixed;
         right: space(md);

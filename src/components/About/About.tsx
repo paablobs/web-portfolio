@@ -7,7 +7,6 @@ const About = () => {
 			<div className={styles.about__content}>
 				<div className={styles.about__body}>
 					<div className={styles.about__media}>
-						<span className={styles.about__title}>About me</span>
 						<img className={styles.about__avatar} src={profileImage} alt='Pablo Bessone' />
 					</div>
 					<div className={styles.about__panel}>
