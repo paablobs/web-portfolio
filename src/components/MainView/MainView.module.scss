@@ -9,6 +9,8 @@
     overflow: auto;
 
     &__section {
+        flex: 0 0 auto;
+        height: auto;
         min-height: 100dvh;
         padding: 0 space(lg) space(xl);
         font-family: $base-font;
