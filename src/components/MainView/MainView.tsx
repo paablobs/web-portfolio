@@ -5,6 +5,7 @@ import styles from './MainView.module.scss'
 import About from '../About/About'
 import Experience from '../Experience/Experience'
 import Work from '../Work/Work'
+import Contact from '../Contact/Contact'
 
 const SCROLL_TOLERANCE = 6
 
@@ -85,10 +86,10 @@ const MainView = () => {
             </section>
             <section id='contact' className={styles.container__section}>
                 <div className={styles.container__sectionTitle}>
-                    <span>Contact</span>
+                    <span>Get in touch</span>
                     <div className={styles.container__sectionTitleLine} />
                 </div>
-                <p>Canales para contactarme</p>
+                <Contact />
             </section>
             <button type='button' className={styles.container__toTopButton} onClick={handleScrollToTop}>
                 ^
