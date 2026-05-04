@@ -41,7 +41,8 @@
 
   &__card {
     flex: 1;
-    background-color: color(primary);
+    background-color: rgba(color(primary), 0.4);
+    backdrop-filter: blur(10px);
     border: 1px solid color(secondary);
     border-radius: radius(md);
     padding: space(xl);
