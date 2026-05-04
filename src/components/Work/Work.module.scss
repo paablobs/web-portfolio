@@ -1,0 +1,125 @@
+@use '../../styles/index.module' as *;
+
+.work {
+	width: 100%;
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: space(xl);
+	}
+
+	&__card {
+		display: flex;
+		align-items: stretch;
+		gap: space(lg);
+		padding: space(md);
+		border: 1px solid rgba(color(text), 0.16);
+		border-radius: radius(lg);
+		background: rgba(color(background), 0.46);
+		backdrop-filter: blur(4px);
+	}
+
+	&__media {
+		flex-shrink: 0;
+	}
+
+	&__image {
+		display: block;
+		width: 530px;
+		height: 320px;
+		object-fit: cover;
+		border-radius: radius(md);
+		border: 1px solid rgba(color(text), 0.12);
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: space(md);
+		min-width: 0;
+	}
+
+	&__title {
+		margin: 0;
+		color: color(text);
+		font-family: $base-font;
+		font-size: font-size(xl);
+		font-weight: font-weight(bold);
+		line-height: line-height(snug);
+	}
+
+	&__description {
+		margin: 0;
+		color: color(text);
+		font-family: $base-font;
+		font-size: font-size(lg);
+		font-weight: font-weight(regular);
+		line-height: line-height(normal);
+	}
+
+	&__stackList {
+		display: flex;
+		flex-wrap: wrap;
+		gap: space(sm);
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	&__stackItem {
+		padding: space(xs) space(sm);
+		border-radius: radius(sm);
+		border: 1px solid color(text);
+		background: color(primary);
+		color: color(text);
+		font-family: $base-font;
+		font-size: font-size(sm);
+		font-weight: font-weight(medium);
+		line-height: line-height(normal);
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: space(md);
+	}
+
+	&__link {
+		color: color(text);
+		font-family: $base-font;
+		font-size: font-size(md);
+		font-weight: font-weight(medium);
+		text-decoration: none;
+		transition: color 140ms ease;
+
+		&:hover,
+		&:focus-visible {
+			color: color(text-hover);
+			text-decoration: underline;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		&__card {
+			flex-direction: column;
+		}
+
+		&__image {
+			width: 100%;
+			height: auto;
+			aspect-ratio: 530 / 320;
+		}
+	}
+
+	@media (max-width: 700px) {
+		&__title {
+			font-size: font-size(lg);
+		}
+
+		&__description {
+			font-size: font-size(md);
+		}
+	}
+}
