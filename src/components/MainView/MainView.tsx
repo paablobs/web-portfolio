@@ -3,6 +3,7 @@ import Header from '../Header/Header'
 import Summary from '../Summary/Summary'
 import styles from './MainView.module.scss'
 import About from '../About/About'
+import Experience from '../Experience/Experience'
 
 const SCROLL_TOLERANCE = 6
 
@@ -72,7 +73,7 @@ const MainView = () => {
                     <span>Experience</span>
                     <div className={styles.container__sectionTitleLine} />
                 </div>
-                <p>Mi experiencia profesional</p>
+                <Experience />
             </section>
             <section id='work' className={styles.container__section}>
                 <div className={styles.container__sectionTitle}>

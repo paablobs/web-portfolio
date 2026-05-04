@@ -1,0 +1,150 @@
+@use '../../styles/index.module' as *;
+
+.experience {
+  width: 100%;
+
+  &__timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: space(xl);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 16px;
+      bottom: 16px;
+      width: 2px;
+      background-color: color(secondary);
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    gap: space(xl);
+    padding-left: space(xl2);
+  }
+
+  &__dot {
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: color(text);
+    border: 2px solid color(secondary);
+    flex-shrink: 0;
+  }
+
+  &__card {
+    flex: 1;
+    background-color: color(primary);
+    border: 1px solid color(secondary);
+    border-radius: radius(md);
+    padding: space(xl);
+    display: flex;
+    flex-direction: column;
+    gap: space(lg);
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: space(xs);
+  }
+
+  &__period {
+    font-family: $base-font;
+    font-size: font-size(sm);
+    font-weight: font-weight(regular);
+    color: color(text);
+    letter-spacing: 1px;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $base-font;
+    font-size: font-size(xl);
+    font-weight: font-weight(bold);
+    color: color(active);
+  }
+
+  &__company {
+    font-family: $base-font;
+    font-size: font-size(md);
+    font-weight: font-weight(medium);
+    color: color(text);
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: space(sm);
+  }
+
+  &__listItem {
+    position: relative;
+    padding-left: space(md);
+    font-family: $base-font;
+    font-size: font-size(sm);
+    font-weight: font-weight(regular);
+    color: color(text);
+    line-height: line-height(normal);
+
+    &::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: color(text);
+    }
+  }
+
+  &__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: space(sm);
+    border-top: 1px solid color(secondary);
+    padding-top: space(lg);
+  }
+
+  &__highlightsLabel {
+    font-family: $base-font;
+    font-size: font-size(xs);
+    font-weight: font-weight(bold);
+    color: color(text-hover);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  &__highlightsList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: space(sm);
+  }
+
+  &__highlightsItem {
+    position: relative;
+    padding-left: space(md);
+    font-family: $base-font;
+    font-size: font-size(sm);
+    font-weight: font-weight(regular);
+    color: color(text);
+    line-height: line-height(normal);
+
+    &::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: color(text);
+    }
+  }
+}
