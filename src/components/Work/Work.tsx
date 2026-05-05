@@ -15,36 +15,25 @@ type WorkItem = {
 const workItems: WorkItem[] = [
 	{
 		id: 1,
-		title: 'E-Mail Spam Detector',
+		title: 'Nout',
 		description:
-			'AI-powered Gmail client that detects spam, summarizes emails, and includes an assistant chat for productivity workflows.',
-		stack: ['React', 'TypeScript', 'Node', 'Express', 'MongoDB'],
+			'Offline-first note-taking app with rich text editing, folder organization, favorites, trash recovery, and optional Firebase sync.',
+		stack: ['React', 'TypeScript', 'Vite', 'TipTap', 'Firebase', 'MUI'],
 		image: workPlaceholderImage,
-		imageAlt: 'Preview of E-Mail Spam Detector project',
-		codeUrl: '#',
-		liveUrl: '#',
+		imageAlt: 'Preview of Nout note-taking application',
+		codeUrl: 'https://github.com/paablobs/Nout',
+		liveUrl: 'https://nout.it',
 	},
 	{
 		id: 2,
-		title: 'Book Store',
+		title: 'What Day Is Next?',
 		description:
-			'Modern book management platform with authentication, role-based routes, and clean CRUD flows for daily operations.',
-		stack: ['React', 'Node', 'MongoDB', 'JWT', 'REST API'],
+			'Minimal web app that calculates the next day of the week with a playful tone, simple flow, and a polished dark UI.',
+		stack: ['React', 'TypeScript', 'Chakra UI', 'Vite'],
 		image: workPlaceholderImage,
-		imageAlt: 'Preview of Book Store project',
-		codeUrl: '#',
-		liveUrl: '#',
-	},
-	{
-		id: 3,
-		title: 'NetScan-Pro',
-		description:
-			'Bash-based network scanning utility with host discovery, diagnostics, and scriptable checks for infrastructure monitoring.',
-		stack: ['Linux', 'Bash', 'Nmap', 'Networking', 'Monitoring'],
-		image: workPlaceholderImage,
-		imageAlt: 'Preview of NetScan-Pro project',
-		codeUrl: '#',
-		liveUrl: '#',
+		imageAlt: 'Preview of What Day Is Next web application',
+		codeUrl: 'https://github.com/paablobs/whatdayisnext',
+		liveUrl: 'https://paablobs.github.io/whatdayisnext/',
 	},
 ]
 
