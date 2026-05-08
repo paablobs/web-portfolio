@@ -2,7 +2,9 @@
 
 .container {
     height: 100dvh;
-    background: color(background);
+    background:
+        linear-gradient(180deg, rgba(color(background), 1) 0%, rgba(color(background), 0.96) 42%, rgba(color(primary), 0.72) 100%),
+        color(background);
     display: flex;
     flex-direction: column;
     scroll-behavior: smooth;
