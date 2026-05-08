@@ -12,8 +12,13 @@
         flex: 0 0 auto;
         height: auto;
         min-height: 100dvh;
-        padding: 0 space(lg) space(xl);
+        padding: 0 0 space(xl);
         font-family: $base-font;
+    }
+
+    &__sectionInner {
+        width: min(1200px, 100%);
+        margin: 0 auto;
     }
 
     &__sectionTitle {

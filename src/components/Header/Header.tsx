@@ -27,9 +27,11 @@ const Header = ({ isVisible }: HeaderProps) => {
         <div
             className={`${styles.header} ${!isVisible ? styles['header--hidden'] : ''}`}
         >
-            <div>My Logo</div>
-            <div className={styles.header__navigation}>
-                {renderNavigation()}
+            <div className={styles.header__inner}>
+                <div>My Logo</div>
+                <div className={styles.header__navigation}>
+                    {renderNavigation()}
+                </div>
             </div>
         </div>
     )

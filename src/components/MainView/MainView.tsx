@@ -61,35 +61,45 @@ const MainView = () => {
         <div ref={containerRef} className={styles.container}>
             <Header isVisible={isHeaderVisible} />
             <section className={styles.container__section}>
-                <Summary />
+                <div className={styles.container__sectionInner}>
+                    <Summary />
+                </div>
             </section>
             <section id='about' className={styles.container__section}>
-                <div className={styles.container__sectionTitle}>
-                    <span>About me</span>
-                    <div className={styles.container__sectionTitleLine} />
+                <div className={styles.container__sectionInner}>
+                    <div className={styles.container__sectionTitle}>
+                        <span>About me</span>
+                        <div className={styles.container__sectionTitleLine} />
+                    </div>
+                    <About />
                 </div>
-                <About />
             </section>
             <section id='experience' className={styles.container__section}>
-                <div className={styles.container__sectionTitle}>
-                    <span>Experience</span>
-                    <div className={styles.container__sectionTitleLine} />
+                <div className={styles.container__sectionInner}>
+                    <div className={styles.container__sectionTitle}>
+                        <span>Experience</span>
+                        <div className={styles.container__sectionTitleLine} />
+                    </div>
+                    <Experience />
                 </div>
-                <Experience />
             </section>
             <section id='work' className={styles.container__section}>
-                <div className={styles.container__sectionTitle}>
-                    <span>Work</span>
-                    <div className={styles.container__sectionTitleLine} />
+                <div className={styles.container__sectionInner}>
+                    <div className={styles.container__sectionTitle}>
+                        <span>Work</span>
+                        <div className={styles.container__sectionTitleLine} />
+                    </div>
+                    <Work />
                 </div>
-                <Work />
             </section>
             <section id='contact' className={styles.container__section}>
-                <div className={styles.container__sectionTitle}>
-                    <span>Get in touch</span>
-                    <div className={styles.container__sectionTitleLine} />
+                <div className={styles.container__sectionInner}>
+                    <div className={styles.container__sectionTitle}>
+                        <span>Get in touch</span>
+                        <div className={styles.container__sectionTitleLine} />
+                    </div>
+                    <Contact />
                 </div>
-                <Contact />
             </section>
             <button type='button' className={styles.container__toTopButton} onClick={handleScrollToTop}>
                 ^
