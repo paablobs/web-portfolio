@@ -18,9 +18,11 @@
     &__inner {
         width: min(1200px, 100%);
         margin: 0 auto;
+        padding: 0 space(lg);
         display: flex;
         align-items: center;
         justify-content: space-between;
+        box-sizing: border-box;
     }
 
     &--hidden {
@@ -34,7 +36,15 @@
         font-size: font-size(md);
         display: flex;
         align-items: center;
-        gap: space(sm);
+        gap: space(md);
+    }
+
+    &__brand {
+        color: color(active);
+        font-family: $base-font;
+        font-size: font-size(md);
+        font-weight: font-weight(bold);
+        text-decoration: none;
     }
 
     &__navLink {
@@ -50,6 +60,27 @@
 
         &:active {
             color: color(active);
+        }
+    }
+
+    @media (max-width: 720px) {
+        padding: space(md) 0;
+
+        &__inner {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: space(sm2);
+        }
+
+        &__navigation {
+            width: 100%;
+            gap: space(sm2);
+            overflow-x: auto;
+        }
+
+        &__navLink {
+            padding: 0;
+            white-space: nowrap;
         }
     }
 }

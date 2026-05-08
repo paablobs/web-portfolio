@@ -1,113 +1,159 @@
 @use '../../styles/index.module' as *;
 
 .summary {
-    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding: space(xl2) 0 space(xl3);
 
     &__content {
-        display: flex;
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 320px;
         align-items: center;
-        justify-content: space-between;
-        gap: space(xl2);
+        gap: space(xl3);
     }
 
-    &__left {
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: space(md);
+        max-width: 780px;
+    }
+
+    &__aside {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: space(lg);
     }
 
-    &__right {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: space(lg);
-        max-width: 700px;
+    &__eyebrow {
+        color: color(text-muted);
+        font-family: $base-font;
+        font-size: font-size(md2);
+        font-weight: font-weight(medium);
+        line-height: line-height(normal);
     }
 
     &__title {
-        display: flex;
-        flex-direction: column;
-        line-height: 1;
-    }
-
-    &__firstName {
+        margin: 0;
+        color: color(active);
         font-family: $base-font;
-        font-size: 120px;
+        font-size: font-size(xl4);
         font-weight: font-weight(bold);
-        color: color(text);
-    }
-
-    &__lastName {
-        font-family: $base-font;
-        font-size: 120px;
-        font-weight: font-weight(bold);
-        color: rgba(color(text), 0.38);
+        line-height: line-height(tight);
     }
 
     &__description {
-        font-family: $base-font;
-        font-size: font-size(xl);
-        font-weight: font-weight(regular);
+        max-width: 720px;
+        margin: 0;
         color: color(text);
-        text-align: right;
-        line-height: 1.6;
+        font-family: $base-font;
+        font-size: font-size(lg);
+        font-weight: font-weight(regular);
+        line-height: line-height(normal);
     }
 
-    &__actionButton {
+    &__actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: space(md);
+        padding-top: space(md);
+    }
+
+    &__primaryAction {
         padding: space(sm) space(md);
         border-radius: radius(md);
         border: 1px solid color(text);
-        background: transparent;
-        color: color(text);
+        background: color(text);
+        color: color(background);
         text-decoration: none;
         font-family: $base-font;
+        font-size: font-size(md);
         font-weight: font-weight(medium);
         transition:
             background-color 160ms ease,
-            border-color 160ms ease,
-            color 160ms ease;
+            border-color 160ms ease;
 
         &:hover,
         &:focus-visible {
             background: color(button-hover);
             border-color: color(button-hover);
-            color: color(background);
         }
 
         &:active {
             background: color(active);
             border-color: color(active);
-            color: color(background);
         }
     }
 
+    &__link {
+        color: color(text);
+        font-family: $base-font;
+        font-size: font-size(md);
+        font-weight: font-weight(medium);
+        line-height: line-height(normal);
+        text-decoration: none;
+        transition: color 140ms ease;
+
+        &:hover,
+        &:focus-visible {
+            color: color(text-hover);
+            text-decoration: underline;
+        }
+    }
+
+    &__avatar {
+        width: 280px;
+        height: 280px;
+        border: 1px solid color(border);
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__metaList {
+        display: flex;
+        flex-direction: column;
+        gap: space(sm);
+        color: color(text-muted);
+        font-family: $base-font;
+        font-size: font-size(md);
+        line-height: line-height(normal);
+    }
+
     @media (max-width: 900px) {
+        padding: space(xl2) 0 space(xl3);
+
         &__content {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            grid-template-columns: 1fr;
             gap: space(xl);
         }
 
-        &__left {
+        &__aside {
+            flex-direction: row;
             align-items: center;
         }
+    }
 
+    @media (max-width: 620px) {
         &__title {
-            align-items: center;
-        }
-
-        &__right {
-            align-items: center;
-            max-width: 100%;
+            font-size: font-size(xl2);
         }
 
         &__description {
-            text-align: center;
+            font-size: font-size(md2);
+        }
+
+        &__aside {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__avatar {
+            width: 220px;
+            height: 220px;
         }
     }
 }

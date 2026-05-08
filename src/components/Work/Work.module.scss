@@ -6,18 +6,16 @@
 	&__list {
 		display: flex;
 		flex-direction: column;
-		gap: space(xl);
+		gap: space(xl2);
 	}
 
 	&__card {
-		display: flex;
-		align-items: stretch;
+		display: grid;
+		grid-template-columns: minmax(280px, 460px) minmax(0, 1fr);
+		align-items: start;
 		gap: space(lg);
-		padding: space(md);
-		border: 1px solid rgba(color(text), 0.16);
-		border-radius: radius(lg);
-		background: rgba(color(background), 0.46);
-		backdrop-filter: blur(4px);
+		padding-bottom: space(xl2);
+		border-bottom: 1px solid color(border);
 	}
 
 	&__media {
@@ -26,17 +24,17 @@
 
 	&__image {
 		display: block;
-		width: 530px;
-		height: 320px;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 530 / 320;
 		object-fit: cover;
 		border-radius: radius(md);
-		border: 1px solid rgba(color(text), 0.12);
+		border: 1px solid color(border);
 	}
 
 	&__content {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
 		gap: space(md);
 		min-width: 0;
 	}
@@ -54,7 +52,7 @@
 		margin: 0;
 		color: color(text);
 		font-family: $base-font;
-		font-size: font-size(lg);
+		font-size: font-size(md2);
 		font-weight: font-weight(regular);
 		line-height: line-height(normal);
 	}
@@ -71,8 +69,8 @@
 	&__stackItem {
 		padding: space(xs) space(sm);
 		border-radius: radius(sm);
-		border: 1px solid color(text);
-		background: color(primary);
+		border: 1px solid color(border);
+		background: color(surface-muted);
 		color: color(text);
 		font-family: $base-font;
 		font-size: font-size(sm);
@@ -101,19 +99,17 @@
 		}
 	}
 
-	@media (max-width: 1200px) {
+	@media (max-width: 1000px) {
 		&__card {
-			flex-direction: column;
-		}
-
-		&__image {
-			width: 100%;
-			height: auto;
-			aspect-ratio: 530 / 320;
+			grid-template-columns: minmax(0, 1fr);
 		}
 	}
 
 	@media (max-width: 700px) {
+		&__card {
+			grid-template-columns: 1fr;
+		}
+
 		&__title {
 			font-size: font-size(lg);
 		}

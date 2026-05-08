@@ -6,6 +6,7 @@ interface ExperienceItem {
   company: string;
   responsibilities: string[];
   highlights: string[];
+  stack: string[];
 }
 
 const experiences: ExperienceItem[] = [
@@ -23,10 +24,11 @@ const experiences: ExperienceItem[] = [
       'Development and maintenance of RESTful APIs.',
     ],
     highlights: [
-      'Implemented microfrontends and component library within the team.',
+      'Implemented microfrontends and a component library within the team.',
       'Promoted best practices and the use of clean code to improve code quality.',
       'Ensured adherence to a coding convention for consistency and maintainability.',
     ],
+    stack: ['React', 'Redux', 'TypeScript', 'NestJS', 'MySQL', 'Docker', 'Mixpanel'],
   },
   {
     period: '01/2020 — 09/2021',
@@ -43,6 +45,7 @@ const experiences: ExperienceItem[] = [
       'JIRA integration with the ERP made the every day work easier for the management team.',
       'Frontend work for the WebPOS boosted performance and usability for the user.',
     ],
+    stack: ['JavaScript', 'PHP', 'PostgreSQL', 'Openbravo', 'Etendo', 'Jira'],
   },
 ];
 
@@ -56,8 +59,10 @@ const Experience = () => {
             <div className={styles.experience__card}>
               <div className={styles.experience__header}>
                 <span className={styles.experience__period}>{exp.period}</span>
-                <h3 className={styles.experience__title}>{exp.title}</h3>
-                <span className={styles.experience__company}>{exp.company}</span>
+                <div className={styles.experience__headingGroup}>
+                  <h3 className={styles.experience__title}>{exp.title}</h3>
+                  <span className={styles.experience__company}>{exp.company}</span>
+                </div>
               </div>
               <ul className={styles.experience__list}>
                 {exp.responsibilities.map((item, i) => (
@@ -68,7 +73,14 @@ const Experience = () => {
                 <span className={styles.experience__highlightsLabel}>Highlights</span>
                 <ul className={styles.experience__highlightsList}>
                   {exp.highlights.map((item, i) => (
-                    <li key={i} className={styles.experience__highlightsItem}>{item}</li>
+                    <li key={i} className={styles.experience__listItem}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className={styles.experience__stack}>
+                <ul className={styles.experience__stackList}>
+                  {exp.stack.map((tech) => (
+                    <li key={tech} className={styles.experience__stackItem}>{tech}</li>
                   ))}
                 </ul>
               </div>

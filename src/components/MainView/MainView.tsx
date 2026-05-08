@@ -58,7 +58,7 @@ const MainView = () => {
     }
 
     return (
-        <div ref={containerRef} className={styles.container}>
+        <div id='top' ref={containerRef} className={styles.container}>
             <Header isVisible={isHeaderVisible} />
             <section className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
@@ -68,7 +68,7 @@ const MainView = () => {
             <section id='about' className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
                     <div className={styles.container__sectionTitle}>
-                        <span>About me</span>
+                        <span>// About</span>
                         <div className={styles.container__sectionTitleLine} />
                     </div>
                     <About />
@@ -77,7 +77,7 @@ const MainView = () => {
             <section id='experience' className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
                     <div className={styles.container__sectionTitle}>
-                        <span>Experience</span>
+                        <span>// Experience</span>
                         <div className={styles.container__sectionTitleLine} />
                     </div>
                     <Experience />
@@ -86,7 +86,7 @@ const MainView = () => {
             <section id='work' className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
                     <div className={styles.container__sectionTitle}>
-                        <span>Work</span>
+                        <span>// Projects</span>
                         <div className={styles.container__sectionTitleLine} />
                     </div>
                     <Work />
@@ -95,7 +95,7 @@ const MainView = () => {
             <section id='contact' className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
                     <div className={styles.container__sectionTitle}>
-                        <span>Get in touch</span>
+                        <span>// Contact</span>
                         <div className={styles.container__sectionTitleLine} />
                     </div>
                     <Contact />

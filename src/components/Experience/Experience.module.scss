@@ -12,57 +12,60 @@
     &::before {
       content: '';
       position: absolute;
-      left: 7px;
-      top: 16px;
-      bottom: 16px;
-      width: 2px;
-      background-color: color(secondary);
+      left: 5px;
+      top: 12px;
+      bottom: 12px;
+      width: 1px;
+      background-color: color(border);
     }
   }
 
   &__item {
     position: relative;
     display: flex;
-    gap: space(xl);
-    padding-left: space(xl2);
+    gap: space(lg);
+    padding-left: space(xl);
   }
 
   &__dot {
     position: absolute;
     left: 0;
-    top: 16px;
-    width: 16px;
-    height: 16px;
+    top: 10px;
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
-    background-color: color(text);
-    border: 2px solid color(secondary);
+    background-color: color(background);
+    border: 1px solid color(text);
     flex-shrink: 0;
   }
 
   &__card {
     flex: 1;
-    background-color: rgba(color(primary), 0.4);
-    backdrop-filter: blur(10px);
-    border: 1px solid color(secondary);
-    border-radius: radius(md);
-    padding: space(xl);
+    border-bottom: 1px solid color(border);
+    padding: 0 0 space(xl);
     display: flex;
     flex-direction: column;
-    gap: space(lg);
+    gap: space(md);
   }
 
   &__header {
-    display: flex;
-    flex-direction: column;
-    gap: space(xs);
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: space(lg);
+    align-items: start;
   }
 
   &__period {
     font-family: $base-font;
     font-size: font-size(sm);
     font-weight: font-weight(regular);
-    color: color(text);
-    letter-spacing: 1px;
+    color: color(text-muted);
+  }
+
+  &__headingGroup {
+    display: flex;
+    flex-direction: column;
+    gap: space(xs);
   }
 
   &__title {
@@ -77,7 +80,7 @@
     font-family: $base-font;
     font-size: font-size(md);
     font-weight: font-weight(medium);
-    color: color(text);
+    color: color(text-muted);
   }
 
   &__list {
@@ -93,16 +96,16 @@
     position: relative;
     padding-left: space(md);
     font-family: $base-font;
-    font-size: font-size(sm);
+    font-size: font-size(md);
     font-weight: font-weight(regular);
     color: color(text);
     line-height: line-height(normal);
 
     &::before {
-      content: '–';
+      content: '-';
       position: absolute;
       left: 0;
-      color: color(text);
+      color: color(text-muted);
     }
   }
 
@@ -110,42 +113,56 @@
     display: flex;
     flex-direction: column;
     gap: space(sm);
-    border-top: 1px solid color(secondary);
-    padding-top: space(lg);
+    padding-top: space(sm);
   }
 
   &__highlightsLabel {
+    color: color(text-muted);
     font-family: $base-font;
-    font-size: font-size(xs);
+    font-size: font-size(sm);
     font-weight: font-weight(bold);
-    color: color(text-hover);
+    line-height: line-height(normal);
     text-transform: uppercase;
-    letter-spacing: 2px;
   }
 
   &__highlightsList {
-    margin: 0;
-    padding: 0;
-    list-style: none;
     display: flex;
     flex-direction: column;
     gap: space(sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  &__highlightsItem {
-    position: relative;
-    padding-left: space(md);
+  &__stackList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: space(sm);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__stackItem {
+    padding: space(xs) space(sm);
+    border: 1px solid color(border);
+    border-radius: radius(sm);
+    background: color(surface-muted);
     font-family: $base-font;
     font-size: font-size(sm);
-    font-weight: font-weight(regular);
+    font-weight: font-weight(medium);
     color: color(text);
     line-height: line-height(normal);
+  }
 
-    &::before {
-      content: '–';
-      position: absolute;
-      left: 0;
-      color: color(text);
+  @media (max-width: 700px) {
+    &__header {
+      grid-template-columns: 1fr;
+      gap: space(xs);
+    }
+
+    &__item {
+      padding-left: space(lg);
     }
   }
 }

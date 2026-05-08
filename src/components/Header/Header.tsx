@@ -7,7 +7,7 @@ type HeaderProps = {
 const NAV_BUTTONS = [
     { label: 'About', link: '#about' },
     { label: 'Experience', link: '#experience' },
-    { label: 'Work', link: '#work' },
+    { label: 'Projects', link: '#work' },
     { label: 'Contact', link: '#contact' },
 ]
 
@@ -28,7 +28,9 @@ const Header = ({ isVisible }: HeaderProps) => {
             className={`${styles.header} ${!isVisible ? styles['header--hidden'] : ''}`}
         >
             <div className={styles.header__inner}>
-                <div>My Logo</div>
+                <a href='#top' className={styles.header__brand}>
+                    Pablo Bessone
+                </a>
                 <div className={styles.header__navigation}>
                     {renderNavigation()}
                 </div>
