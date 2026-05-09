@@ -17,9 +17,6 @@ const Summary = () => {
                         on clean UI, scalable frontends and useful backend integrations.
                     </p>
                     <div className={styles.summary__actions}>
-                        <a href='/Pablo_Bessone_CV.txt' download className={styles.summary__primaryAction}>
-                            Download CV
-                        </a>
                         <a href={`mailto:${EMAIL}`} className={styles.summary__link}>
                             Email
                         </a>
