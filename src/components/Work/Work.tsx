@@ -1,5 +1,10 @@
 import styles from './Work.module.scss'
 import workPlaceholderImage from '../../assets/work-placeholder.svg'
+import { useLanguage, type Language } from '../../hooks/useLanguage'
+
+type WorkProps = {
+    language: Language
+}
 
 type WorkItem = {
 	id: number
@@ -37,7 +42,9 @@ const workItems: WorkItem[] = [
 	},
 ]
 
-const Work = () => {
+const Work = ({ language }: WorkProps) => {
+	const { t } = useLanguage(language)
+
 	return (
 		<div className={styles.work}>
 			<div className={styles.work__list}>
@@ -58,10 +65,10 @@ const Work = () => {
 							</ul>
 							<div className={styles.work__actions}>
 								<a href={item.codeUrl} className={styles.work__link}>
-									Code
+									{t('work.code')}
 								</a>
 								<a href={item.liveUrl} className={styles.work__link}>
-									Live
+									{t('work.live')}
 								</a>
 							</div>
 						</div>

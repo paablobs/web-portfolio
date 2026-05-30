@@ -1,25 +1,35 @@
 import styles from './Header.module.scss'
+import { useLanguage, type Language } from '../../hooks/useLanguage'
 
 type HeaderProps = {
     isVisible: boolean
+    language: Language
+    onLanguageToggle: () => void
 }
 
 const NAV_BUTTONS = [
-    { label: 'About', link: '#about' },
-    { label: 'Experience', link: '#experience' },
-    { label: 'Projects', link: '#work' },
-    { label: 'Contact', link: '#contact' },
+    { labelKey: 'header.navAbout', link: '#about' },
+    { labelKey: 'header.navExperience', link: '#experience' },
+    { labelKey: 'header.navProjects', link: '#work' },
+    { labelKey: 'header.navContact', link: '#contact' },
 ]
 
-const Header = ({ isVisible }: HeaderProps) => {
+const LANG_LABEL: Record<Language, string> = {
+    ENGLISH: 'EN',
+    SPANISH: 'ES',
+}
+
+const Header = ({ isVisible, language, onLanguageToggle }: HeaderProps) => {
+    const { t } = useLanguage(language)
+
     const renderNavigation = () =>
         NAV_BUTTONS.map(button => (
             <a
-                key={button.label}
+                key={button.labelKey}
                 href={button.link}
                 className={styles.header__navLink}
             >
-                {button.label}
+                {t(button.labelKey)}
             </a>
         ))
 
@@ -29,10 +39,17 @@ const Header = ({ isVisible }: HeaderProps) => {
         >
             <div className={styles.header__inner}>
                 <a href='#top' className={styles.header__brand}>
-                    Pablo Bessone
+                    {t('header.brand')}
                 </a>
                 <div className={styles.header__navigation}>
                     {renderNavigation()}
+                    <button
+                        type='button'
+                        className={styles.header__langToggle}
+                        onClick={onLanguageToggle}
+                    >
+                        {LANG_LABEL[language]}
+                    </button>
                 </div>
             </div>
         </div>

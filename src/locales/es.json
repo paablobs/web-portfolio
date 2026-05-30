@@ -1,0 +1,53 @@
+{
+  "index": {
+    "htmlTitle": "Pablo Bessone - Web Portfolio"
+  },
+  "header": {
+    "brand": "Pablo Bessone",
+    "navAbout": "Sobre mí",
+    "navExperience": "Experiencia",
+    "navProjects": "Proyectos",
+    "navContact": "Contacto"
+  },
+  "summary": {
+    "eyebrow": "Full Stack Developer",
+    "title": "Pablo Bessone",
+    "description": "Desarrollo productos web fiables con React, TypeScript, Node y NestJS, centrándome en la creación de interfaces de usuario limpias, frontends escalables e integraciones útiles con el backend.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "avatarAlt": "Pablo Bessone",
+    "techStack": [
+      "React / TypeScript",
+      "Node / NestJS",
+      "Microfrontends"
+    ]
+  },
+  "about": {
+    "text1": "¡Hola! Soy un desarrollador full stack al que le encanta convertir ideas en aplicaciones web fiables y eficientes. Desde rediseñar pantallas de interfaz de usuario complejas hasta integrar servicios de backend y flujos de trabajo automatizados, disfruto de cada paso del proceso de desarrollo.",
+    "text2": "Trabajo principalmente con React (y Redux), TypeScript, Node (NestJS) y MySQL, y estoy en constante aprendizaje para ofrecer mejores soluciones. Me preocupo por escribir buen código, mantener una buena comunicación y facilitar las cosas a las personas con las que colaboro.",
+    "text3": "Últimamente, me he centrado especialmente en mejorar cómo utilizo la IA en mi flujo de trabajo diario para maximizar la eficiencia y la calidad del código. También colaboro en iniciativas de IA dentro de mi equipo, explorando formas prácticas de integrar estas herramientas en procesos de desarrollo reales.",
+    "text4": "Cuando no estoy programando, suelo experimentar con nuevas tecnologías, leer sobre arquitectura frontend o buscar formas más inteligentes de crear software.",
+    "stackTitle": "Stack actual"
+  },
+  "experience": {
+    "highlightsLabel": "Puntos destacados"
+  },
+  "work": {
+    "code": "Code",
+    "live": "Live"
+  },
+  "contact": {
+    "tagline": "Estoy abierto a trabajar en el desarrollo de productos, a puestos centrados en el front-end y a retos de ingeniería interesantes.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "location": "Argentina"
+  },
+  "mainView": {
+    "sectionAbout": "// Sobre mí",
+    "sectionExperience": "// Experiencia",
+    "sectionProjects": "// Proyectos",
+    "sectionContact": "// Contacto",
+    "scrollToTop": "^"
+  }
+}

@@ -47,7 +47,7 @@
         text-decoration: none;
     }
 
-    &__navLink {
+        &__navLink {
         padding: space(xs) space(sm);
         text-decoration: none;
         color: color(text);
@@ -60,6 +60,28 @@
 
         &:active {
             color: color(active);
+        }
+    }
+
+    &__langToggle {
+        font-family: $base-font;
+        font-size: font-size(md);
+        font-weight: font-weight(bold);
+        color: color(active);
+        background: none;
+        border: 1px solid color(active);
+        border-radius: radius(xs);
+        padding: space(xs) space(sm);
+        cursor: pointer;
+        line-height: 1;
+        transition:
+            background-color 160ms ease,
+            color 160ms ease;
+
+        &:hover,
+        &:focus-visible {
+            background-color: color(active);
+            color: color(background);
         }
     }
 

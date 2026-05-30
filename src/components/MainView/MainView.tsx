@@ -6,6 +6,7 @@ import About from '../About/About'
 import Experience from '../Experience/Experience'
 import Work from '../Work/Work'
 import Contact from '../Contact/Contact'
+import { useLanguage } from '../../hooks/useLanguage'
 
 const SCROLL_TOLERANCE = 6
 
@@ -13,6 +14,8 @@ const MainView = () => {
     const containerRef = useRef<HTMLDivElement>(null)
     const lastScrollTopRef = useRef(0)
     const [isHeaderVisible, setIsHeaderVisible] = useState(true)
+    const [language, setLanguage] = useState<'ENGLISH' | 'SPANISH'>('ENGLISH')
+    const { t } = useLanguage(language)
 
     useEffect(() => {
         const container = containerRef.current
@@ -53,56 +56,60 @@ const MainView = () => {
         }
     }, [])
 
+    const handleLanguageToggle = () => {
+        setLanguage(prev => (prev === 'ENGLISH' ? 'SPANISH' : 'ENGLISH'))
+    }
+
     const handleScrollToTop = () => {
         containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
     return (
         <div id='top' ref={containerRef} className={styles.container}>
-            <Header isVisible={isHeaderVisible} />
+            <Header isVisible={isHeaderVisible} language={language} onLanguageToggle={handleLanguageToggle} />
             <section className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
-                    <Summary />
+                    <Summary language={language} />
                 </div>
             </section>
             <section id='about' className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
                     <div className={styles.container__sectionTitle}>
-                        <span>// About</span>
+                        <span>{t('mainView.sectionAbout')}</span>
                         <div className={styles.container__sectionTitleLine} />
                     </div>
-                    <About />
+                    <About language={language} />
                 </div>
             </section>
             <section id='experience' className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
                     <div className={styles.container__sectionTitle}>
-                        <span>// Experience</span>
+                        <span>{t('mainView.sectionExperience')}</span>
                         <div className={styles.container__sectionTitleLine} />
                     </div>
-                    <Experience />
+                    <Experience language={language} />
                 </div>
             </section>
             <section id='work' className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
                     <div className={styles.container__sectionTitle}>
-                        <span>// Projects</span>
+                        <span>{t('mainView.sectionProjects')}</span>
                         <div className={styles.container__sectionTitleLine} />
                     </div>
-                    <Work />
+                    <Work language={language} />
                 </div>
             </section>
             <section id='contact' className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
                     <div className={styles.container__sectionTitle}>
-                        <span>// Contact</span>
+                        <span>{t('mainView.sectionContact')}</span>
                         <div className={styles.container__sectionTitleLine} />
                     </div>
-                    <Contact />
+                    <Contact language={language} />
                 </div>
             </section>
             <button type='button' className={styles.container__toTopButton} onClick={handleScrollToTop}>
-                ^
+                {t('mainView.scrollToTop')}
             </button>
         </div>
     )

@@ -1,0 +1,53 @@
+{
+  "index": {
+    "htmlTitle": "Pablo Bessone - Web Portfolio"
+  },
+  "header": {
+    "brand": "Pablo Bessone",
+    "navAbout": "About",
+    "navExperience": "Experience",
+    "navProjects": "Projects",
+    "navContact": "Contact"
+  },
+  "summary": {
+    "eyebrow": "Full Stack Developer",
+    "title": "Pablo Bessone",
+    "description": "I build reliable web products with React, TypeScript, Node and NestJS, with a practical focus on clean UI, scalable frontends and useful backend integrations.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "avatarAlt": "Pablo Bessone",
+    "techStack": [
+      "React / TypeScript",
+      "Node / NestJS",
+      "Microfrontends"
+    ]
+  },
+  "about": {
+    "text1": "Hi! I'm a Full Stack Developer who loves turning ideas into reliable, efficient web applications. From redesigning complex UI screens to integrating backend services and automated workflows, I enjoy every step of the development process.",
+    "text2": "I work mainly with React (and Redux), TypeScript, Node (NestJS), and MySQL, and I'm constantly learning to bring better solutions to the table. I care about good code, good communication, and making things easier for the people I collaborate with.",
+    "text3": "Lately, I've been especially focused on improving how I use AI in my daily workflow to maximize efficiency and code quality. I also collaborate on AI initiatives within my team, exploring practical ways to integrate these tools into real development processes.",
+    "text4": "When I'm not coding, I'm usually experimenting with new technologies, reading about frontend architecture, or finding smarter ways to build software.",
+    "stackTitle": "Current stack"
+  },
+  "experience": {
+    "highlightsLabel": "Highlights"
+  },
+  "work": {
+    "code": "Code",
+    "live": "Live"
+  },
+  "contact": {
+    "tagline": "Open to product work, frontend-heavy roles and useful engineering challenges.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "location": "Argentina"
+  },
+  "mainView": {
+    "sectionAbout": "// About",
+    "sectionExperience": "// Experience",
+    "sectionProjects": "// Projects",
+    "sectionContact": "// Contact",
+    "scrollToTop": "^"
+  }
+}

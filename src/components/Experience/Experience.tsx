@@ -1,4 +1,9 @@
 import styles from './Experience.module.scss';
+import { useLanguage, type Language } from '../../hooks/useLanguage';
+
+type ExperienceProps = {
+  language: Language
+}
 
 interface ExperienceItem {
   period: string;
@@ -49,7 +54,9 @@ const experiences: ExperienceItem[] = [
   },
 ];
 
-const Experience = () => {
+const Experience = ({ language }: ExperienceProps) => {
+  const { t } = useLanguage(language)
+
   return (
     <div className={styles.experience}>
       <div className={styles.experience__timeline}>
@@ -70,7 +77,7 @@ const Experience = () => {
                 ))}
               </ul>
               <div className={styles.experience__highlights}>
-                <span className={styles.experience__highlightsLabel}>Highlights</span>
+                <span className={styles.experience__highlightsLabel}>{t('experience.highlightsLabel')}</span>
                 <ul className={styles.experience__highlightsList}>
                   {exp.highlights.map((item, i) => (
                     <li key={i} className={styles.experience__listItem}>{item}</li>
