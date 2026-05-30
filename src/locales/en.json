@@ -35,7 +35,11 @@
   },
   "work": {
     "code": "Code",
-    "live": "Live"
+    "live": "Live",
+    "noutDescription": "Offline-first note-taking app with rich text editing, folder organization, favorites, trash recovery, and optional Firebase sync.",
+    "noutImageAlt": "Preview of Nout note-taking application",
+    "whatDayIsNextDescription": "Minimal web app that calculates the next day of the week with a playful tone, simple flow, and a polished dark UI.",
+    "whatDayIsNextImageAlt": "Preview of What Day Is Next web application"
   },
   "contact": {
     "tagline": "Open to product work, frontend-heavy roles and useful engineering challenges.",
