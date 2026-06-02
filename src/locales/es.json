@@ -10,7 +10,7 @@
     "navContact": "Contacto"
   },
   "summary": {
-    "eyebrow": "Full Stack Developer",
+    "eyebrow": "Desarrollador Full Stack",
     "title": "Pablo Bessone",
     "description": "Desarrollo productos web fiables con React, TypeScript, Node y NestJS, centrándome en la creación de interfaces de usuario limpias, frontends escalables e integraciones útiles con el backend.",
     "email": "Email",
@@ -31,7 +31,34 @@
     "stackTitle": "Stack actual"
   },
   "experience": {
-    "highlightsLabel": "Puntos destacados"
+    "highlightsLabel": "Puntos destacados",
+    "pshTitle": "Desarrollador Full Stack",
+    "pshResponsibilities": [
+      "Rediseño completo de distintas páginas del proyecto, incluyendo su funcionalidad. Además, migración de parte del código antiguo de AngularJS a React/Redux.",
+      "Comunicación con el equipo de UI/UX para entender mejor el proyecto y su funcionalidad a la hora de rediseñar en Figma.",
+      "Gestión de información de usuarios enviando datos desde el frontend y/o backend a Mixpanel.",
+      "Utilización y depuración de contenedores Docker.",
+      "Trabajo con microservicios en Typescript/Nest conectados a MySQL para proveer mejor información sobre el estado de los usuarios.",
+      "Trabajo con microfrontends en Typescript/React.",
+      "Desarrollo y mantenimiento de APIs RESTful."
+    ],
+    "pshHighlights": [
+      "Implementación de microfrontends y una biblioteca de componentes dentro del equipo.",
+      "Promoción de buenas prácticas y el uso de código limpio para mejorar la calidad del código.",
+      "Garantía del cumplimiento de una convención de código para mantener la consistencia y la mantenibilidad."
+    ],
+    "futitTitle": "Desarrollador Full Stack",
+    "futitResponsibilities": [
+      "Integración de Jira con el ERP. Sincronización de tareas, estado de las tareas y lectura de partes de horas.",
+      "Integración de Scaleway con Openbravo (también conocido como Etendo) para poder gestionar la creación de servidores desde el ERP.",
+      "Gestión de bases de datos.",
+      "Soporte directo y en vivo a clientes.",
+      "Desarrollo frontend para Openbravo WebPOS (E-Commerce)."
+    ],
+    "futitHighlights": [
+      "La integración de JIRA con el ERP facilitó el trabajo diario del equipo de gestión.",
+      "El trabajo frontend para WebPOS mejoró el rendimiento y la usabilidad para el usuario."
+    ]
   },
   "work": {
     "code": "Code",

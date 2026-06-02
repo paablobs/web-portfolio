@@ -31,7 +31,34 @@
     "stackTitle": "Current stack"
   },
   "experience": {
-    "highlightsLabel": "Highlights"
+    "highlightsLabel": "Highlights",
+    "pshTitle": "FullStack Developer",
+    "pshResponsibilities": [
+      "Complete redesign of different web pages across the project, including its functionality. Additionally migrating part of old code from AngularJS to React/Redux.",
+      "Communication with UI/UX team for better understanding and functionality of the project when redesigning on Figma.",
+      "Users information management sending data from frontend and/or backend to Mixpanel.",
+      "Docker container utilization and bugfixing.",
+      "Microservices work with Typescript/Nest connected to MySQL to provide better information on user statuses.",
+      "Microfrontends work with Typescript/React.",
+      "Development and maintenance of RESTful APIs."
+    ],
+    "pshHighlights": [
+      "Implemented microfrontends and a component library within the team.",
+      "Promoted best practices and the use of clean code to improve code quality.",
+      "Ensured adherence to a coding convention for consistency and maintainability."
+    ],
+    "futitTitle": "FullStack Developer",
+    "futitResponsibilities": [
+      "Jira integration with ERP. Task synchronization, tasks status and reading of worklogs.",
+      "Scaleway integration with Openbravo (aka Etendo) to be able to manage the creation of servers from the ERP.",
+      "Database management.",
+      "Direct and live support to clients.",
+      "Frontend developing for the Openbravo WebPOS (E-Commerce)."
+    ],
+    "futitHighlights": [
+      "JIRA integration with the ERP made the every day work easier for the management team.",
+      "Frontend work for the WebPOS boosted performance and usability for the user."
+    ]
   },
   "work": {
     "code": "Code",
