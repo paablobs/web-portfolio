@@ -66,6 +66,7 @@ const MainView = () => {
 
     return (
         <div id='top' ref={containerRef} className={styles.container}>
+            IT WILL WORK NOW
             <Header isVisible={isHeaderVisible} language={language} onLanguageToggle={handleLanguageToggle} />
             <section className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
