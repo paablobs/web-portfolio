@@ -1,5 +1,6 @@
 import styles from './Header.module.scss'
 import { useLanguage, type Language } from '../../hooks/useLanguage'
+import Logo from '../Logo/Logo'
 
 type HeaderProps = {
     isVisible: boolean
@@ -39,6 +40,7 @@ const Header = ({ isVisible, language, onLanguageToggle }: HeaderProps) => {
         >
             <div className={styles.header__inner}>
                 <a href='#top' className={styles.header__brand}>
+                    <Logo size={28} />
                     {t('header.brand')}
                 </a>
                 <div className={styles.header__navigation}>

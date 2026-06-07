@@ -40,6 +40,9 @@
     }
 
     &__brand {
+        display: flex;
+        align-items: center;
+        gap: space(sm);
         color: color(active);
         font-family: $base-font;
         font-size: font-size(md);
