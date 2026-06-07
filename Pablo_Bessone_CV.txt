@@ -1,0 +1,39 @@
+Pablo Bessone
+Full Stack Developer
+
+Contact
+Email: pablo.bessone@outlook.com
+LinkedIn: https://www.linkedin.com/in/pablobessone/
+GitHub: https://github.com/paablobs
+Location: Argentina
+
+Technical Skills
+Languages: JavaScript, TypeScript, PHP
+Database: PostgreSQL, MySQL
+Other Technologies: CSS, SCSS, HTML, React, Redux, NestJS, Mixpanel, Jenkins, Node
+
+Experience
+
+We Are Psh
+FullStack Developer
+09/2021 - Present
+- Complete redesign of different web pages across the project, including functionality and migration from AngularJS to React/Redux.
+- Collaborated with UI/UX teams to translate Figma redesigns into working product flows.
+- Managed user information and analytics events from frontend and backend to Mixpanel.
+- Used Docker containers and worked on bug fixing.
+- Built TypeScript/NestJS microservices connected to MySQL.
+- Worked on TypeScript/React microfrontends.
+- Developed and maintained RESTful APIs.
+- Implemented microfrontends and a component library within the team.
+- Promoted best practices and clean code for quality, consistency and maintainability.
+
+Futit Services
+FullStack Developer
+01/2020 - 09/2021
+- Integrated Jira with ERP workflows for task synchronization, task status and worklog reads.
+- Integrated Scaleway with Openbravo/Etendo to manage server creation from the ERP.
+- Managed databases.
+- Provided direct and live client support.
+- Developed frontend features for Openbravo WebPOS ecommerce.
+- Improved daily management workflows through Jira and ERP integration.
+- Improved WebPOS performance and usability.
