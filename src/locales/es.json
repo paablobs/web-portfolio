@@ -66,7 +66,11 @@
     "noutDescription": "Aplicación para tomar notas que prioriza el modo sin conexión, con edición de texto enriquecido, organización en carpetas, favoritos, recuperación de la papelera y sincronización opcional con Firebase.",
     "noutImageAlt": "Vista previa de la aplicación para tomar notas Nout",
     "whatDayIsNextDescription": "Aplicación web minimalista que calcula el próximo día de la semana con un tono divertido, un flujo sencillo y una interfaz de usuario oscura y pulida.",
-    "whatDayIsNextImageAlt": "Vista previa de la aplicación web What Day Is Next"
+    "whatDayIsNextImageAlt": "Vista previa de la aplicación web What Day Is Next",
+    "webPortfolioDescription": "Portfolio personal de desarrollador construido con React 19, TypeScript, Vite y SCSS Modules.",
+    "webPortfolioImageAlt": "Vista previa del portfolio web",
+    "sabotetrisDescription": "Una variante competitiva de Tetris con mecánicas de sabotaje: envía líneas de basura a los oponentes y sobrevive al caos.",
+    "sabotetrisImageAlt": "Vista previa del juego Sabotetris"
   },
   "contact": {
     "tagline": "Estoy abierto a trabajar en el desarrollo de productos, a puestos centrados en el front-end y a retos de ingeniería interesantes.",

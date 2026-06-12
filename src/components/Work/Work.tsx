@@ -27,6 +27,26 @@ const WORK_ITEMS = [
 		codeUrl: 'https://github.com/paablobs/whatdayisnext',
 		liveUrl: 'https://paablobs.github.io/whatdayisnext/',
 	},
+	{
+		id: 3,
+		title: 'Web Portfolio',
+		descKey: 'work.webPortfolioDescription',
+		altKey: 'work.webPortfolioImageAlt',
+		stack: ['React', 'TypeScript', 'Vite', 'SCSS'],
+		image: workPlaceholderImage,
+		codeUrl: 'https://github.com/paablobs/web-portfolio',
+		liveUrl: 'https://paablobs.github.io/web-portfolio/',
+	},
+	{
+		id: 4,
+		title: 'Sabotetris',
+		descKey: 'work.sabotetrisDescription',
+		altKey: 'work.sabotetrisImageAlt',
+		stack: ['TypeScript', 'Canvas', 'Vite'],
+		image: workPlaceholderImage,
+		codeUrl: 'https://github.com/paablobs/sabotetris',
+		liveUrl: 'https://paablobs.github.io/sabotetris/',
+	},
 ]
 
 const Work = ({ language }: WorkProps) => {

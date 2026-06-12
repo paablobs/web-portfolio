@@ -66,7 +66,11 @@
     "noutDescription": "Offline-first note-taking app with rich text editing, folder organization, favorites, trash recovery, and optional Firebase sync.",
     "noutImageAlt": "Preview of Nout note-taking application",
     "whatDayIsNextDescription": "Minimal web app that calculates the next day of the week with a playful tone, simple flow, and a polished dark UI.",
-    "whatDayIsNextImageAlt": "Preview of What Day Is Next web application"
+    "whatDayIsNextImageAlt": "Preview of What Day Is Next web application",
+    "webPortfolioDescription": "Personal developer portfolio built with React 19, TypeScript, Vite, and SCSS Modules.",
+    "webPortfolioImageAlt": "Preview of Web Portfolio",
+    "sabotetrisDescription": "A competitive Tetris variant with sabotage mechanics — send garbage lines to opponents and survive the chaos.",
+    "sabotetrisImageAlt": "Preview of Sabotetris game"
   },
   "contact": {
     "tagline": "Open to product work, frontend-heavy roles and useful engineering challenges.",
