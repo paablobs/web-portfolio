@@ -1,13 +1,10 @@
 import styles from './Contact.module.scss'
 import { useLanguage, type Language } from '../../hooks/useLanguage'
+import { EMAIL, GITHUB_URL, LINKEDIN_URL } from '../../constants'
 
 type ContactProps = {
     language: Language
 }
-
-const EMAIL = 'pablo.bessone@outlook.com'
-const GITHUB_URL = 'https://github.com/paablobs'
-const LINKEDIN_URL = 'https://www.linkedin.com/in/pablobessone/'
 
 const Contact = ({ language }: ContactProps) => {
     const { t } = useLanguage(language)
@@ -19,10 +16,10 @@ const Contact = ({ language }: ContactProps) => {
                 <a className={styles.contact__link} href={`mailto:${EMAIL}`}>
                     {EMAIL}
                 </a>
-                <a href={LINKEDIN_URL} target='_blank' rel='noreferrer' className={styles.contact__link}>
+                <a href={LINKEDIN_URL} target='_blank' rel='noopener noreferrer' className={styles.contact__link}>
                     {t('contact.linkedin')}
                 </a>
-                <a href={GITHUB_URL} target='_blank' rel='noreferrer' className={styles.contact__link}>
+                <a href={GITHUB_URL} target='_blank' rel='noopener noreferrer' className={styles.contact__link}>
                     {t('contact.github')}
                 </a>
             </div>

@@ -125,6 +125,12 @@
         line-height: line-height(normal);
     }
 
+    @media (prefers-reduced-motion: reduce) {
+        &__link {
+            transition: none;
+        }
+    }
+
     @media (max-width: 900px) {
         padding: space(xl2) 0 space(xl3);
 

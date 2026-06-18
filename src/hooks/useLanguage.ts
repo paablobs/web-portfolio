@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import en from '../locales/en.json'
 import es from '../locales/es.json'
 
@@ -21,15 +22,15 @@ const getValue = (language: Language, key: string): unknown => {
 }
 
 export function useLanguage(language: Language = 'ENGLISH') {
-  const t = (key: string): string => {
+  const t = useMemo(() => (key: string): string => {
     const value = getValue(language, key)
     return typeof value === 'string' ? value : key
-  }
+  }, [language])
 
-  const ta = (key: string): string[] => {
+  const ta = useMemo(() => (key: string): string[] => {
     const value = getValue(language, key)
     return Array.isArray(value) ? (value as string[]) : []
-  }
+  }, [language])
 
-  return { t, ta, language }
+  return useMemo(() => ({ t, ta, language }), [t, ta, language])
 }

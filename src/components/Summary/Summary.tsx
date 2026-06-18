@@ -1,10 +1,7 @@
 import styles from './Summary.module.scss'
 import profileImage from '../../assets/sloth.jpg'
 import { useLanguage, type Language } from '../../hooks/useLanguage'
-
-const EMAIL = 'pablo.bessone@outlook.com'
-const GITHUB_URL = 'https://github.com/paablobs'
-const LINKEDIN_URL = 'https://www.linkedin.com/in/pablobessone/'
+import { EMAIL, GITHUB_URL, LINKEDIN_URL } from '../../constants'
 
 type SummaryProps = {
     language: Language
@@ -26,12 +23,12 @@ const Summary = ({ language }: SummaryProps) => {
                         <a href={`mailto:${EMAIL}`} className={styles.summary__link}>
                             {t('summary.email')}
                         </a>
-                        <a href={LINKEDIN_URL} target='_blank' rel='noreferrer' className={styles.summary__link}>
-                            {t('summary.linkedin')}
-                        </a>
-                        <a href={GITHUB_URL} target='_blank' rel='noreferrer' className={styles.summary__link}>
-                            {t('summary.github')}
-                        </a>
+                <a href={LINKEDIN_URL} target='_blank' rel='noopener noreferrer' className={styles.summary__link}>
+                    {t('summary.linkedin')}
+                </a>
+                <a href={GITHUB_URL} target='_blank' rel='noopener noreferrer' className={styles.summary__link}>
+                    {t('summary.github')}
+                </a>
                     </div>
                 </div>
                 <div className={styles.summary__aside}>

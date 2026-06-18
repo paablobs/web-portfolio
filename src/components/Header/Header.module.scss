@@ -76,7 +76,7 @@
         border-radius: radius(xs);
         padding: space(xs) space(sm);
         cursor: pointer;
-        line-height: 1;
+        line-height: line-height(tight);
         transition:
             background-color 160ms ease,
             color 160ms ease;
@@ -85,6 +85,14 @@
         &:focus-visible {
             background-color: color(active);
             color: color(background);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+
+        &__langToggle {
+            transition: none;
         }
     }
 
