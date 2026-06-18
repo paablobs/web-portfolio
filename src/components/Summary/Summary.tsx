@@ -1,5 +1,5 @@
 import styles from './Summary.module.scss'
-import profileImage from '../../assets/pol.jpg'
+import profileImage from '../../assets/sloth.jpg'
 import { useLanguage, type Language } from '../../hooks/useLanguage'
 
 const EMAIL = 'pablo.bessone@outlook.com'
