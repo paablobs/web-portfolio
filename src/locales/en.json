@@ -40,6 +40,7 @@
       "Docker container utilization and bugfixing.",
       "Microservices work with Typescript/Nest connected to MySQL to provide better information on user statuses.",
       "Microfrontends work with Typescript/React.",
+      "Configured and maintained CI/CD pipelines for multiple microservices and microfrontends.",
       "Development and maintenance of RESTful APIs."
     ],
     "pshHighlights": [
