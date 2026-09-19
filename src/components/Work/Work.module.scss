@@ -26,6 +26,7 @@
 		display: block;
 		width: 100%;
 		height: auto;
+		box-sizing: border-box;
 		aspect-ratio: 530 / 320;
 		object-fit: cover;
 		border-radius: radius(md);
@@ -85,17 +86,35 @@
 	}
 
 	&__link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: space(sm) space(md);
+		border: 1px solid color(border);
+		border-radius: radius(sm);
+		background-color: color(surface);
 		color: color(text);
 		font-family: $base-font;
 		font-size: font-size(md);
 		font-weight: font-weight(medium);
 		text-decoration: none;
-		transition: color 140ms ease;
+		transition:
+			background-color 140ms ease,
+			border-color 140ms ease,
+			color 140ms ease;
 
 		&:hover,
 		&:focus-visible {
+			border-color: color(primary-soft);
+			background-color: color(surface-muted);
 			color: color(text-hover);
-			text-decoration: underline;
+			text-decoration: none;
+		}
+
+		&--primary {
+			border-color: color(primary-soft);
+			background-color: color(primary);
+			color: color(active);
 		}
 	}
 

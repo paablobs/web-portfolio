@@ -7,7 +7,8 @@
     "navAbout": "About",
     "navExperience": "Experience",
     "navProjects": "Projects",
-    "navContact": "Contact"
+    "navContact": "Contact",
+    "menu": "Menu"
   },
   "summary": {
     "eyebrow": "Full Stack Developer",
@@ -85,6 +86,7 @@
     "sectionExperience": "// Experience",
     "sectionProjects": "// Projects",
     "sectionContact": "// Contact",
-    "scrollToTop": "^"
+    "scrollToTop": "^",
+    "scrollToTopLabel": "Back to top"
   }
 }

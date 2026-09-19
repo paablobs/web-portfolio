@@ -9,13 +9,20 @@ import Contact from '../Contact/Contact'
 import { useLanguage } from '../../hooks/useLanguage'
 
 const SCROLL_TOLERANCE = 6
+const TO_TOP_VISIBILITY_THRESHOLD = 480
 
 const MainView = () => {
     const containerRef = useRef<HTMLDivElement>(null)
     const lastScrollTopRef = useRef(0)
     const [isHeaderVisible, setIsHeaderVisible] = useState(true)
+    const [isToTopVisible, setIsToTopVisible] = useState(false)
     const [language, setLanguage] = useState<'ENGLISH' | 'SPANISH'>('ENGLISH')
     const { t } = useLanguage(language)
+
+    useEffect(() => {
+        document.documentElement.lang = language === 'SPANISH' ? 'es' : 'en'
+        document.title = t('index.htmlTitle')
+    }, [language, t])
 
     useEffect(() => {
         const container = containerRef.current
@@ -28,6 +35,8 @@ const MainView = () => {
             const currentScrollTop = container.scrollTop
             const lastScrollTop = lastScrollTopRef.current
             const scrollDelta = currentScrollTop - lastScrollTop
+
+            setIsToTopVisible(currentScrollTop > TO_TOP_VISIBILITY_THRESHOLD)
 
             if (currentScrollTop <= 0) {
                 setIsHeaderVisible(true)
@@ -108,9 +117,16 @@ const MainView = () => {
                     <Contact language={language} />
                 </div>
             </section>
-            <button type='button' className={styles.container__toTopButton} onClick={handleScrollToTop}>
-                {t('mainView.scrollToTop')}
-            </button>
+            {isToTopVisible && (
+                <button
+                    type='button'
+                    className={styles.container__toTopButton}
+                    aria-label={t('mainView.scrollToTopLabel')}
+                    onClick={handleScrollToTop}
+                >
+                    {t('mainView.scrollToTop')}
+                </button>
+            )}
         </div>
     )
 }

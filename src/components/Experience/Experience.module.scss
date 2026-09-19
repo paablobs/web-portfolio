@@ -113,11 +113,14 @@
     display: flex;
     flex-direction: column;
     gap: space(sm);
-    padding-top: space(sm);
+    padding: space(md);
+    border-left: 2px solid color(primary-soft);
+    border-radius: radius(sm);
+    background-color: color(surface);
   }
 
   &__highlightsLabel {
-    color: color(text-muted);
+    color: color(active);
     font-family: $base-font;
     font-size: font-size(sm);
     font-weight: font-weight(bold);

@@ -39,6 +39,13 @@
         gap: space(md);
     }
 
+    &__controls {
+        display: flex;
+        align-items: center;
+        gap: space(sm);
+        margin-left: space(md);
+    }
+
     &__brand {
         display: flex;
         align-items: center;
@@ -50,7 +57,7 @@
         text-decoration: none;
     }
 
-        &__navLink {
+    &__navLink {
         padding: space(xs) space(sm);
         text-decoration: none;
         color: color(text);
@@ -66,7 +73,12 @@
         }
     }
 
-    &__langToggle {
+    &__menuToggle {
+        display: none;
+    }
+
+    &__langToggle,
+    &__menuToggle {
         font-family: $base-font;
         font-size: font-size(md);
         font-weight: font-weight(bold);
@@ -94,25 +106,47 @@
         &__langToggle {
             transition: none;
         }
+
+        &__menuToggle {
+            transition: none;
+        }
     }
 
     @media (max-width: 720px) {
         padding: space(md) 0;
 
         &__inner {
-            align-items: flex-start;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
             gap: space(sm2);
         }
 
         &__navigation {
+            display: none;
+            grid-column: 1 / -1;
+            grid-row: 2;
             width: 100%;
-            gap: space(sm2);
-            overflow-x: auto;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: space(sm);
+
+            &--open {
+                display: grid;
+            }
+        }
+
+        &__controls {
+            margin-left: 0;
+        }
+
+        &__menuToggle {
+            display: inline-flex;
         }
 
         &__navLink {
-            padding: 0;
+            padding: space(sm);
+            border: 1px solid color(border);
+            border-radius: radius(xs);
+            text-align: center;
             white-space: nowrap;
         }
     }

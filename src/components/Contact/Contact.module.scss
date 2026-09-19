@@ -24,12 +24,14 @@
 	}
 
 	&__link {
+		max-width: 100%;
 		color: color(text);
 		font-family: $base-font;
 		font-size: font-size(md);
 		font-weight: font-weight(medium);
 		line-height: line-height(normal);
 		text-decoration: none;
+		overflow-wrap: anywhere;
 		transition: color 140ms ease;
 
 		&:hover,

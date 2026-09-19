@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styles from './Header.module.scss'
 import { useLanguage, type Language } from '../../hooks/useLanguage'
 import Logo from '../Logo/Logo'
@@ -22,6 +23,7 @@ const LANG_LABEL: Record<Language, string> = {
 
 const Header = ({ isVisible, language, onLanguageToggle }: HeaderProps) => {
     const { t } = useLanguage(language)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const renderNavigation = () =>
         NAV_BUTTONS.map(button => (
@@ -29,6 +31,7 @@ const Header = ({ isVisible, language, onLanguageToggle }: HeaderProps) => {
                 key={button.labelKey}
                 href={button.link}
                 className={styles.header__navLink}
+                onClick={() => setIsMenuOpen(false)}
             >
                 {t(button.labelKey)}
             </a>
@@ -43,8 +46,22 @@ const Header = ({ isVisible, language, onLanguageToggle }: HeaderProps) => {
                     <Logo size={28} />
                     {t('header.brand')}
                 </a>
-                <div className={styles.header__navigation}>
+                <div
+                    id='primary-navigation'
+                    className={`${styles.header__navigation} ${isMenuOpen ? styles['header__navigation--open'] : ''}`}
+                >
                     {renderNavigation()}
+                </div>
+                <div className={styles.header__controls}>
+                    <button
+                        type='button'
+                        className={styles.header__menuToggle}
+                        aria-expanded={isMenuOpen}
+                        aria-controls='primary-navigation'
+                        onClick={() => setIsMenuOpen(open => !open)}
+                    >
+                        {t('header.menu')}
+                    </button>
                     <button
                         type='button'
                         className={styles.header__langToggle}

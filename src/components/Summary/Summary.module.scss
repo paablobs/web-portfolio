@@ -146,12 +146,31 @@
     }
 
     @media (max-width: 620px) {
+        padding: space(xl) 0 space(xl2);
+
         &__title {
-            font-size: font-size(xl2);
+            font-size: font-size(xl1);
         }
 
         &__description {
             font-size: font-size(md2);
+        }
+
+        &__actions {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: space(sm);
+        }
+
+        &__link {
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+
+            &:first-child {
+                grid-column: 1 / -1;
+            }
         }
 
         &__aside {
@@ -160,8 +179,8 @@
         }
 
         &__avatar {
-            width: 220px;
-            height: 220px;
+            width: 180px;
+            height: 180px;
         }
     }
 }

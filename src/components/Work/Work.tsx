@@ -61,7 +61,15 @@ const Work = ({ language }: WorkProps) => {
                 {WORK_ITEMS.map(item => (
                     <article key={item.id} className={styles.work__card}>
                         <div className={styles.work__media}>
-                            <img className={styles.work__image} src={item.image} alt={t(item.altKey)} />
+                            <img
+                                className={styles.work__image}
+                                src={item.image}
+                                alt={t(item.altKey)}
+                                width='530'
+                                height='320'
+                                loading='lazy'
+                                decoding='async'
+                            />
                         </div>
                         <div className={styles.work__content}>
                             <h3 className={styles.work__title}>{item.title}</h3>
@@ -74,10 +82,15 @@ const Work = ({ language }: WorkProps) => {
                                 ))}
                             </ul>
                             <div className={styles.work__actions}>
-                                <a href={item.codeUrl} className={styles.work__link}>
+                                <a href={item.codeUrl} target='_blank' rel='noopener noreferrer' className={styles.work__link}>
                                     {t('work.code')}
                                 </a>
-                                <a href={item.liveUrl} className={styles.work__link}>
+                                <a
+                                    href={item.liveUrl}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className={`${styles.work__link} ${styles['work__link--primary']}`}
+                                >
                                     {t('work.live')}
                                 </a>
                             </div>
