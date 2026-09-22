@@ -10,10 +10,12 @@ import { useLanguage } from '../../hooks/useLanguage'
 
 const SCROLL_TOLERANCE = 6
 const TO_TOP_VISIBILITY_THRESHOLD = 480
+type ScrollDirection = 'up' | 'down'
 
 const MainView = () => {
-    const containerRef = useRef<HTMLDivElement>(null)
-    const lastScrollTopRef = useRef(0)
+    const containerRef = useRef<HTMLElement>(null)
+    const lastSignificantScrollTopRef = useRef(0)
+    const lastScrollDirectionRef = useRef<ScrollDirection | null>(null)
     const [isHeaderVisible, setIsHeaderVisible] = useState(true)
     const [isToTopVisible, setIsToTopVisible] = useState(false)
     const [language, setLanguage] = useState<'ENGLISH' | 'SPANISH'>('ENGLISH')
@@ -32,30 +34,46 @@ const MainView = () => {
         }
 
         const handleScroll = () => {
-            const currentScrollTop = container.scrollTop
-            const lastScrollTop = lastScrollTopRef.current
-            const scrollDelta = currentScrollTop - lastScrollTop
+            const currentScrollTop = Math.max(0, container.scrollTop)
+            const lastSignificantScrollTop = lastSignificantScrollTopRef.current
+            const scrollDelta = currentScrollTop - lastSignificantScrollTop
 
             setIsToTopVisible(currentScrollTop > TO_TOP_VISIBILITY_THRESHOLD)
 
             if (currentScrollTop <= 0) {
                 setIsHeaderVisible(true)
-                lastScrollTopRef.current = 0
+                lastSignificantScrollTopRef.current = 0
+                lastScrollDirectionRef.current = null
+                return
+            }
+
+            if (scrollDelta === 0) {
+                return
+            }
+
+            const direction: ScrollDirection = scrollDelta < 0 ? 'up' : 'down'
+
+            if (
+                lastScrollDirectionRef.current !== null &&
+                direction !== lastScrollDirectionRef.current
+            ) {
+                lastSignificantScrollTopRef.current = currentScrollTop
+                lastScrollDirectionRef.current = direction
+
+                if (Math.abs(scrollDelta) >= SCROLL_TOLERANCE) {
+                    setIsHeaderVisible(direction === 'up')
+                }
+
                 return
             }
 
             if (Math.abs(scrollDelta) < SCROLL_TOLERANCE) {
-                lastScrollTopRef.current = currentScrollTop
                 return
             }
 
-            if (scrollDelta < 0) {
-                setIsHeaderVisible(true)
-            } else {
-                setIsHeaderVisible(false)
-            }
-
-            lastScrollTopRef.current = currentScrollTop
+            setIsHeaderVisible(direction === 'up')
+            lastSignificantScrollTopRef.current = currentScrollTop
+            lastScrollDirectionRef.current = direction
         }
 
         container.addEventListener('scroll', handleScroll, { passive: true })
@@ -74,7 +92,7 @@ const MainView = () => {
     }
 
     return (
-        <div id='top' ref={containerRef} className={styles.container}>
+        <main id='top' ref={containerRef} className={styles.container}>
             <Header isVisible={isHeaderVisible} language={language} onLanguageToggle={handleLanguageToggle} />
             <section className={styles.container__section}>
                 <div className={styles.container__sectionInner}>
@@ -127,7 +145,7 @@ const MainView = () => {
                     {t('mainView.scrollToTop')}
                 </button>
             )}
-        </div>
+        </main>
     )
 }
 

@@ -38,7 +38,7 @@ const Header = ({ isVisible, language, onLanguageToggle }: HeaderProps) => {
         ))
 
     return (
-        <div
+        <header
             className={`${styles.header} ${!isVisible ? styles['header--hidden'] : ''}`}
         >
             <div className={styles.header__inner}>
@@ -71,7 +71,7 @@ const Header = ({ isVisible, language, onLanguageToggle }: HeaderProps) => {
                     </button>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 
