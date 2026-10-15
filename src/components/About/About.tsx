@@ -1,5 +1,5 @@
 import styles from './About.module.scss'
-import { useLanguage, type Language } from '../../hooks/useLanguage'
+import { translate, type Language } from '../../i18n'
 
 const skills = [
     'JavaScript',
@@ -19,7 +19,7 @@ type AboutProps = {
 }
 
 const About = ({ language }: AboutProps) => {
-    const { t } = useLanguage(language)
+    const { t } = translate(language)
 
     return (
         <div className={styles.about}>

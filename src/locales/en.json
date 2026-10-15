@@ -8,7 +8,8 @@
     "navExperience": "Experience",
     "navProjects": "Projects",
     "navContact": "Contact",
-    "menu": "Menu"
+    "menu": "Menu",
+    "navigationLabel": "Main navigation"
   },
   "summary": {
     "eyebrow": "Full Stack Developer",
@@ -70,10 +71,11 @@
     "noutImageAlt": "Preview of Nout note-taking application",
     "whatDayIsNextDescription": "Minimal web app that calculates the next day of the week with a playful tone, simple flow, and a polished dark UI.",
     "whatDayIsNextImageAlt": "Preview of What Day Is Next web application",
-    "webPortfolioDescription": "Personal developer portfolio built with React 19, TypeScript, Vite, and SCSS Modules.",
+    "webPortfolioDescription": "Personal developer portfolio built with Astro, React, TypeScript, and SCSS Modules, with static pages in English and Spanish.",
     "webPortfolioImageAlt": "Preview of Web Portfolio",
     "sabotetrisDescription": "A competitive Tetris variant with sabotage mechanics — send garbage lines to opponents and survive the chaos.",
-    "sabotetrisImageAlt": "Preview of Sabotetris game"
+    "sabotetrisImageAlt": "Preview of Sabotetris game",
+    "backToProjects": "Back to projects"
   },
   "contact": {
     "tagline": "Open to product work, frontend-heavy roles and useful engineering challenges.",

@@ -48,6 +48,10 @@
     }
 
     &__toTopButton {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
         position: fixed;
         right: space(md);
         bottom: space(md);

@@ -1,0 +1,43 @@
+---
+import Header from '../Header/Header.astro'
+import Summary from '../Summary/Summary'
+import About from '../About/About'
+import Experience from '../Experience/Experience'
+import Work from '../Work/Work'
+import Contact from '../Contact/Contact'
+import styles from './MainView.module.scss'
+import { languages, translate, type Locale } from '../../i18n'
+
+interface Props { locale: Locale }
+const { locale } = Astro.props
+const language = languages[locale]
+const { t } = translate(language)
+const sections = [
+  { id: 'about', title: 'mainView.sectionAbout', Component: About },
+  { id: 'experience', title: 'mainView.sectionExperience', Component: Experience },
+  { id: 'work', title: 'mainView.sectionProjects', Component: Work },
+  { id: 'contact', title: 'mainView.sectionContact', Component: Contact },
+]
+---
+
+<main id="top" class={styles.container} data-portfolio>
+  <Header locale={locale} />
+  <section class={styles.container__section}>
+    <div class={styles.container__sectionInner}><Summary language={language} /></div>
+  </section>
+  {sections.map(({ id, title, Component }) => (
+    <section id={id} class={styles.container__section}>
+      <div class={styles.container__sectionInner}>
+        <div class={styles.container__sectionTitle}><span>{t(title)}</span><div class={styles.container__sectionTitleLine} /></div>
+        <Component language={language} />
+      </div>
+    </section>
+  ))}
+  <a href="#top" class={styles.container__toTopButton} aria-label={t('mainView.scrollToTopLabel')} data-to-top hidden>{t('mainView.scrollToTop')}</a>
+</main>
+
+<script>
+  import { initializeNavigation } from './navigation'
+  const portfolio = document.querySelector<HTMLElement>('[data-portfolio]')
+  if (portfolio) initializeNavigation(portfolio)
+</script>

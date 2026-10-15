@@ -1,0 +1,13 @@
+---
+import Page from '../../layouts/Page.astro'
+import MainView from '../../components/MainView/MainView.astro'
+import { locales, type Locale } from '../../i18n'
+import preview from '../../assets/Webportoflio.png'
+
+export function getStaticPaths() {
+  return locales.map(locale => ({ params: { locale } }))
+}
+const locale = Astro.params.locale as Locale
+---
+
+<Page locale={locale} image={preview.src} imageAlt="Pablo Bessone - Web Portfolio"><MainView locale={locale} /></Page>

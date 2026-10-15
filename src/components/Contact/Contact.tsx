@@ -1,5 +1,5 @@
 import styles from './Contact.module.scss'
-import { useLanguage, type Language } from '../../hooks/useLanguage'
+import { translate, type Language } from '../../i18n'
 import { EMAIL, GITHUB_URL, LINKEDIN_URL } from '../../constants'
 
 type ContactProps = {
@@ -7,7 +7,7 @@ type ContactProps = {
 }
 
 const Contact = ({ language }: ContactProps) => {
-    const { t } = useLanguage(language)
+    const { t } = translate(language)
 
     return (
         <div className={styles.contact}>

@@ -1,5 +1,5 @@
 import styles from './Experience.module.scss';
-import { useLanguage, type Language } from '../../hooks/useLanguage';
+import { translate, type Language } from '../../i18n';
 
 type ExperienceProps = {
   language: Language
@@ -37,7 +37,7 @@ const experiences: ExperienceItem[] = [
 ];
 
 const Experience = ({ language }: ExperienceProps) => {
-  const { t, ta } = useLanguage(language)
+  const { t, ta } = translate(language)
 
   return (
     <div className={styles.experience}>

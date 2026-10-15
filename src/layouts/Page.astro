@@ -1,0 +1,55 @@
+---
+import { languages, localizedPath, translate, type Locale } from '../i18n'
+
+interface Props {
+  locale: Locale
+  title?: string
+  description?: string
+  path?: string
+  image?: string
+  imageAlt?: string
+}
+const { locale, title, description, path = '', image, imageAlt } = Astro.props
+const { t } = translate(languages[locale])
+const pageTitle = title ?? t('index.htmlTitle')
+const pageDescription = description ?? t('summary.description')
+const canonical = new URL(localizedPath(import.meta.env.BASE_URL, locale, path), Astro.site)
+const socialImage = image ? new URL(image, Astro.site) : undefined
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="canonical" href={canonical} />
+    {(['en', 'es'] as const).map(language => (
+      <link rel="alternate" hreflang={language} href={new URL(localizedPath(import.meta.env.BASE_URL, language, path), Astro.site)} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(import.meta.env.BASE_URL, 'en', path), Astro.site)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={locale === 'es' ? 'es_AR' : 'en_US'} />
+    <meta property="og:locale:alternate" content={locale === 'es' ? 'en_US' : 'es_AR'} />
+    <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
+    {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet" />
+  </head>
+  <body><slot /></body>
+</html>
+
+<style is:global>
+  body { overflow: hidden; margin: 0; }
+  :root { color-scheme: dark; }
+  * { scrollbar-color: rgba(255, 255, 255, 0.315) transparent; }
+  [hidden] { display: none !important; }
+</style>

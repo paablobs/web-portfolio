@@ -1,69 +1,23 @@
 import styles from './Work.module.scss'
-import webPortfolioImage from '../../assets/Webportoflio.png'
-import noutImage from '../../assets/nout.png'
-import sabotetrisImage from '../../assets/Tetris.png'
-import whatDayImage from '../../assets/whatday.png'
-import { useLanguage, type Language } from '../../hooks/useLanguage'
+import { projects } from '../../data/projects'
+import { localizedPath, translate, type Language } from '../../i18n'
 
 type WorkProps = {
     language: Language
 }
 
-const WORK_ITEMS = [
-    {
-        id: 1,
-        title: 'Web Portfolio',
-        descKey: 'work.webPortfolioDescription',
-        altKey: 'work.webPortfolioImageAlt',
-        stack: ['React', 'TypeScript', 'Vite', 'SCSS'],
-        image: webPortfolioImage,
-        codeUrl: 'https://github.com/paablobs/web-portfolio',
-        liveUrl: 'https://paablobs.github.io/web-portfolio/',
-    },
-    {
-        id: 2,
-        title: 'Nout',
-        descKey: 'work.noutDescription',
-        altKey: 'work.noutImageAlt',
-        stack: ['React', 'TypeScript', 'Vite', 'TipTap', 'Firebase', 'MUI'],
-        image: noutImage,
-        codeUrl: 'https://github.com/paablobs/Nout',
-        liveUrl: 'https://nout.it',
-    },
-    {
-        id: 3,
-        title: 'Sabotetris',
-        descKey: 'work.sabotetrisDescription',
-        altKey: 'work.sabotetrisImageAlt',
-        stack: ['TypeScript', 'Canvas', 'Vite'],
-        image: sabotetrisImage,
-        codeUrl: 'https://github.com/paablobs/sabotetris',
-        liveUrl: 'https://paablobs.github.io/sabotetris/',
-    },
-    {
-        id: 4,
-        title: 'What Day Is Next?',
-        descKey: 'work.whatDayIsNextDescription',
-        altKey: 'work.whatDayIsNextImageAlt',
-        stack: ['React', 'TypeScript', 'Chakra UI', 'Vite'],
-        image: whatDayImage,
-        codeUrl: 'https://github.com/paablobs/whatdayisnext',
-        liveUrl: 'https://paablobs.github.io/whatdayisnext/',
-    },
-]
-
 const Work = ({ language }: WorkProps) => {
-    const { t } = useLanguage(language)
+    const { t } = translate(language)
 
     return (
         <div className={styles.work}>
             <div className={styles.work__list}>
-                {WORK_ITEMS.map(item => (
-                    <article key={item.id} className={styles.work__card}>
+                {projects.map(item => (
+                    <article key={item.slug} className={styles.work__card}>
                         <div className={styles.work__media}>
                             <img
                                 className={styles.work__image}
-                                src={item.image}
+                                src={item.image.src}
                                 alt={t(item.altKey)}
                                 width='530'
                                 height='320'
@@ -72,7 +26,7 @@ const Work = ({ language }: WorkProps) => {
                             />
                         </div>
                         <div className={styles.work__content}>
-                            <h3 className={styles.work__title}>{item.title}</h3>
+                            <h3 className={styles.work__title}><a className={styles.work__titleLink} href={localizedPath(import.meta.env.BASE_URL, language === 'SPANISH' ? 'es' : 'en', `projects/${item.slug}`)}>{item.title}</a></h3>
                             <p className={styles.work__description}>{t(item.descKey)}</p>
                             <ul className={styles.work__stackList}>
                                 {item.stack.map(tech => (

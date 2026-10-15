@@ -1,6 +1,6 @@
 import styles from './Summary.module.scss'
 import profileImage from '../../assets/sloth.jpg'
-import { useLanguage, type Language } from '../../hooks/useLanguage'
+import { translate, type Language } from '../../i18n'
 import { EMAIL, GITHUB_URL, LINKEDIN_URL } from '../../constants'
 
 type SummaryProps = {
@@ -8,7 +8,7 @@ type SummaryProps = {
 }
 
 const Summary = ({ language }: SummaryProps) => {
-    const { t, ta } = useLanguage(language)
+    const { t, ta } = translate(language)
 
     return (
         <div className={styles.summary}>
@@ -32,7 +32,7 @@ const Summary = ({ language }: SummaryProps) => {
                     </div>
                 </div>
                 <div className={styles.summary__aside}>
-                    <img className={styles.summary__avatar} src={profileImage} alt={t('summary.avatarAlt')} />
+                    <img className={styles.summary__avatar} src={profileImage.src} width={profileImage.width} height={profileImage.height} alt={t('summary.avatarAlt')} />
                     <div className={styles.summary__metaList}>
                         {ta('summary.techStack').map((item, i) => (
                             <span key={i}>{item}</span>

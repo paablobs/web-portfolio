@@ -1,0 +1,50 @@
+---
+import Page from '../../../layouts/Page.astro'
+import Header from '../../../components/Header/Header.astro'
+import { projects } from '../../../data/projects'
+import { languages, locales, localizedPath, translate, type Locale } from '../../../i18n'
+import styles from '../../../components/MainView/MainView.module.scss'
+import projectStyles from '../../../components/Work/Work.module.scss'
+
+export function getStaticPaths() {
+  return locales.flatMap(locale => projects.map(project => ({ params: { locale, slug: project.slug }, props: { project } })))
+}
+const locale = Astro.params.locale as Locale
+const { project } = Astro.props
+const { t } = translate(languages[locale])
+const path = `projects/${project.slug}`
+---
+
+<Page locale={locale} title={`${project.title} | Pablo Bessone`} description={t(project.descKey)} path={path} image={project.image.src} imageAlt={t(project.altKey)}>
+  <main id="top" class={styles.container} data-portfolio>
+    <Header locale={locale} path={path} />
+    <section class={styles.container__section}>
+      <div class={styles.container__sectionInner}>
+        <div class={styles.container__sectionTitle}>
+          <a class={projectStyles.work__link} href={`${localizedPath(import.meta.env.BASE_URL, locale)}#work`}>{t('work.backToProjects')}</a>
+          <div class={styles.container__sectionTitleLine} />
+        </div>
+        <article class={projectStyles.work__card}>
+          <div class={projectStyles.work__media}>
+            <img class={projectStyles.work__image} src={project.image.src} alt={t(project.altKey)} width={project.image.width} height={project.image.height} />
+          </div>
+          <div class={projectStyles.work__content}>
+            <h1 class={projectStyles.work__title}>{project.title}</h1>
+            <p class={projectStyles.work__description}>{t(project.descKey)}</p>
+            <ul class={projectStyles.work__stackList}>{project.stack.map(tech => <li class={projectStyles.work__stackItem}>{tech}</li>)}</ul>
+            <div class={projectStyles.work__actions}>
+              <a class={projectStyles.work__link} href={project.codeUrl} target="_blank" rel="noopener noreferrer">{t('work.code')}</a>
+              <a class:list={[projectStyles.work__link, projectStyles['work__link--primary']]} href={project.liveUrl} target="_blank" rel="noopener noreferrer">{t('work.live')}</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</Page>
+
+<script>
+  import { initializeNavigation } from '../../../components/MainView/navigation'
+  const portfolio = document.querySelector<HTMLElement>('[data-portfolio]')
+  if (portfolio) initializeNavigation(portfolio)
+</script>

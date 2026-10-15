@@ -1,187 +1,75 @@
 # Web Portfolio
 
-A minimal, content-driven personal portfolio built with **React 19**, **TypeScript**, **Vite**, and **SCSS Modules**.
+Personal portfolio built with Astro, React, TypeScript, and SCSS Modules. Astro renders the React sections to static HTML during the build. The browser receives a small navigation script for the menu and scroll controls; it does not hydrate the React tree.
 
-The codebase is intentionally generic: there is no hardcoded copy in components and no hardcoded visual values in styles. To make it your own, you only need to edit JSON files and design tokens — no component changes required.
+## Development
 
-## Quick Start
+Use Node.js 24, as specified in `.nvmrc`, and npm.
 
-```bash
-npm install
-npm run dev        # start dev server
-npm run build      # type-check + production build
-npm run lint       # eslint
-npm run preview    # preview production build
+```sh
+npm ci
+npm run dev
+npm run lint
+npm test
+npm run build
+npm run test:static
+npm run preview
 ```
 
-## Project Structure
+`build` runs Astro's TypeScript diagnostics before generating `dist/`. `test:static` checks the generated HTML, so run it after building. `dev` and `preview` serve the site under `/web-portfolio/`.
 
-```
-src/
-  components/<Name>/<Name>.tsx          # component
-  components/<Name>/<Name>.module.scss  # co-located scoped styles
-  hooks/useLanguage.ts                  # i18n hook (t / ta)
-  locales/                              # translation JSON files
-    en.json
-    es.json
-  styles/                               # design tokens (SCSS)
-    _colors.module.scss
-    _spacing.module.scss
-    _radius.module.scss
-    _typography.module.scss
-    _index.module.scss                  # forwards tokens + helper functions
-  App.tsx
-  main.tsx
-```
+## Routes and metadata
 
-Each component lives in its own folder with a co-located `.module.scss`. There are no global style files per component.
+- `/web-portfolio/`: English portfolio at the existing address, with a canonical link to `/web-portfolio/en/`.
+- `/web-portfolio/en/` and `/web-portfolio/es/`: complete, static language versions.
+- `/web-portfolio/{en,es}/projects/{slug}/`: localized pages for each featured project.
+- `/web-portfolio/sitemap.xml`: the ten canonical portfolio and project URLs.
 
-## How It Works
+The language selector links to the equivalent page in the other language. Titles, descriptions, canonical URLs, language alternates, and Open Graph images are written into each page's HTML at build time. Portfolio content, language links, and project links work without JavaScript. The mobile menu, scroll-aware header, and back-to-top enhancement use `navigation.ts`.
 
-### 1. Internationalization (i18n)
+## Code map
 
-All visible text is sourced from JSON files in `src/locales/`. Components consume text through the `useLanguage` hook:
-
-```tsx
-import { useLanguage } from '../../hooks/useLanguage'
-
-const MyComponent = () => {
-    const { t, ta, language } = useLanguage('ENGLISH')
-    return (
-        <>
-            <h1>{t('summary.title')}</h1>
-            <ul>{ta('summary.techStack').map(item => <li key={item}>{item}</li>)}</ul>
-        </>
-    )
-}
+```text
+astro.config.mjs                      site URL, base path, static output, React integration
+src/pages/index.astro                 existing entry address
+src/pages/[locale]/index.astro        English and Spanish portfolio pages
+src/pages/[locale]/projects/[slug].astro
+src/pages/sitemap.xml.ts
+src/layouts/Page.astro                document and localized metadata
+src/components/MainView/             page composition, scroll/menu script, shared styles
+src/components/Header/               static navigation and language links
+src/components/{Summary,About,Experience,Work,Contact}/
+src/data/projects.ts                  featured project definitions
+src/i18n.ts                           translation lookup and localized URLs
+src/locales/{en,es}.json              visible text
+src/styles/                          shared SCSS tokens
+scripts/check-build.mjs               generated-page checks
 ```
 
-- `t(key)` resolves a dot-notation key (e.g. `summary.title`) to a **string**.
-- `ta(key)` resolves a key to a **string array** (e.g. lists of responsibilities, tech stack).
-- The current language is held in `MainView` state and passed down as a prop, so toggling re-renders the whole tree.
+The existing React content components render only during compilation. Header and MainView are Astro components. There are no API endpoints that require a running server.
 
-The document `<title>` is set at boot from `en.json#index.htmlTitle` in `src/main.tsx`.
+## Editing content
 
-### 2. Customizing the Text (EN / ES)
+Edit `src/locales/en.json` and `src/locales/es.json`, keeping their keys aligned. `translate(language)` provides `t(key)` for strings and `ta(key)` for arrays.
 
-To change what the portfolio says, just edit the JSON files. Keys must stay identical across files so the same component works for both languages.
+Featured projects live in `src/data/projects.ts`: slug, title, translation keys, stack, image, repository URL, and live URL. Adding a project there and its text to both catalogs creates its card, both detail pages, and sitemap entries. The build checks list the expected project slugs explicitly; update that list when adding one.
 
-`src/locales/en.json` and `src/locales/es.json` share this shape:
+Contact destinations live in `src/constants.ts`. Profile and project images live in `src/assets/`; Astro image imports expose `src`, `width`, and `height`.
 
-```json
-{
-  "index":      { "htmlTitle": "..." },
-  "header":     { "brand": "...", "navAbout": "...", "navExperience": "...", "navProjects": "...", "navContact": "..." },
-  "summary":    { "eyebrow": "...", "title": "...", "description": "...", "techStack": ["..."], "avatarAlt": "..." },
-  "about":      { "text1": "...", "text2": "...", "text3": "...", "text4": "...", "stackTitle": "..." },
-  "experience": { "highlightsLabel": "...", "pshTitle": "...", "pshResponsibilities": ["..."], "pshHighlights": ["..."], "futitTitle": "...", "futitResponsibilities": ["..."], "futitHighlights": ["..."] },
-  "work":       { "code": "...", "live": "...", "noutDescription": "...", "noutImageAlt": "...", "whatDayIsNextDescription": "...", "whatDayIsNextImageAlt": "..." },
-  "contact":    { "tagline": "...", "linkedin": "...", "github": "...", "location": "..." },
-  "mainView":   { "sectionAbout": "...", "sectionExperience": "...", "sectionProjects": "...", "sectionContact": "...", "scrollToTop": "..." }
-}
-```
+To add a language, extend `locales`, `languages`, and `translations` in `src/i18n.ts`, add its catalog, and update the alternate-language navigation, metadata, and static checks, which currently target English and Spanish.
 
-Just replace the strings. Arrays (tech stack, responsibilities, highlights) accept any number of items.
+## Styling
 
-### 3. Adding a New Language
-
-To add, for example, Portuguese:
-
-1. **Create the JSON file** mirroring the structure of `en.json`:
-   ```
-   src/locales/pt.json
-   ```
-
-2. **Register the language** in `src/hooks/useLanguage.ts`:
-   ```ts
-   import pt from '../locales/pt.json'
-
-   export type Language = 'ENGLISH' | 'SPANISH' | 'PORTUGUESE'
-
-   const translations: Record<Language, Record<string, unknown>> = {
-       ENGLISH: en,
-       SPANISH: es,
-       PORTUGUESE: pt,
-   }
-   ```
-
-3. **Add the toggle label** in `src/components/Header/Header.tsx`:
-   ```ts
-   const LANG_LABEL: Record<Language, string> = {
-       ENGLISH: 'EN',
-       SPANISH: 'ES',
-       PORTUGUESE: 'PT',
-   }
-   ```
-
-4. **Update the toggle logic** in `src/components/MainView/MainView.tsx` to cycle through the new set:
-   ```ts
-   const LANGS: Language[] = ['ENGLISH', 'SPANISH', 'PORTUGUESE']
-   const handleLanguageToggle = () => {
-       setLanguage(prev => LANGS[(LANGS.indexOf(prev) + 1) % LANGS.length])
-   }
-   ```
-
-That's it — no component code needs to change. The whole UI will render in the new language as long as every key in the JSON is present.
-
-### 4. Design Tokens
-
-All visual values come from SCSS token maps in `src/styles/`. Components consume them through helper functions:
-
-| Token type    | Function           | File                       |
-|---------------|--------------------|----------------------------|
-| Colors        | `color($key)`      | `_colors.module.scss`      |
-| Spacing       | `space($key)`      | `_spacing.module.scss`     |
-| Border radius | `radius($key)`     | `_radius.module.scss`      |
-| Font size     | `font-size($key)`  | `_typography.module.scss`  |
-| Font weight   | `font-weight($key)`| `_typography.module.scss`  |
-| Font family   | `$base-font`       | `_typography.module.scss`  |
-
-Every component SCSS file starts with:
+Components retain their co-located SCSS Modules and existing design tokens. Import the token helpers before writing component styles:
 
 ```scss
 @use '../../styles/index.module' as *;
 ```
 
-Then uses the functions instead of hardcoded values:
+Use `color()`, `space()`, `radius()`, `font-size()`, `font-weight()`, and `line-height()` for values covered by the existing maps. Keep fixed sizes in pixels and BEM selectors. MainView owns section labels and separators.
 
-```scss
-color: color(text);
-padding: space(md);
-border-radius: radius(md);
-font-size: font-size(lg);
-```
+## Verification and deployment
 
-To re-skin the portfolio, just edit the maps. For example, to switch to a light palette, change `_colors.module.scss`:
+Vitest covers cumulative scroll movement, direction changes, the back-to-top threshold, reduced motion, menu navigation, Escape handling, and language-link fragments. The static checks verify all eleven HTML pages, localized content, metadata, local assets and fragments, project destinations, external-link attributes, absence of hydrated React islands, and the sitemap.
 
-```scss
-$colors: (
-    primary: #00282b,
-    background: #ffffff,
-    surface: #f5f5f5,
-    text: #111618,
-    // ...
-);
-```
-
-Or to make the spacing tighter, edit `_spacing.module.scss` — every component picks up the change.
-
-### 5. Units and Conventions
-
-- Use `px` for all fixed sizes; `%` only for `width` and `height`. Never use `rem` or `em`.
-- Avoid decimals in measurements (`1px`, not `0.5px`).
-- Components use BEM naming with SCSS nesting (`&__element`, `&--modifier`).
-- Section titles and decorative lines are rendered by `MainView`, not by individual section components.
-
-## How to Make It Yours — Checklist
-
-1. Replace all text in `src/locales/en.json` (and `es.json`) with your own copy.
-2. Adjust the design tokens in `src/styles/_*.module.scss` to your color palette, spacing, and type scale.
-3. Swap the avatar / project images in `src/assets/` (or wherever your components reference them).
-4. Update links (LinkedIn, GitHub, email) inside the components that render the contact / summary section.
-5. (Optional) Add a new language following the steps above.
-6. Run `npm run lint` and `npm run build` to make sure everything still type-checks.
-
-## License
-
-Personal portfolio template — adapt freely.
+The existing GitHub Actions workflow runs tests, build, and generated-page checks, then publishes `dist/` on pushes to `master`. Pull requests build and check without publishing. No server adapter or deployment service is required. If the hosting address changes, update `site` and `base` in `astro.config.mjs`, the portfolio live URL, and the expected URLs in the static checks.

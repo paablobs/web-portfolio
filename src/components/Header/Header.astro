@@ -1,0 +1,30 @@
+---
+import styles from './Header.module.scss'
+import Logo from '../Logo/Logo'
+import { languages, localizedPath, translate, type Locale } from '../../i18n'
+
+interface Props { locale: Locale; path?: string }
+const { locale, path = '' } = Astro.props
+const { t } = translate(languages[locale])
+const home = localizedPath(import.meta.env.BASE_URL, locale)
+const otherLocale = locale === 'en' ? 'es' : 'en'
+const navigation = [
+  { label: 'header.navAbout', hash: 'about' },
+  { label: 'header.navExperience', hash: 'experience' },
+  { label: 'header.navProjects', hash: 'work' },
+  { label: 'header.navContact', hash: 'contact' },
+]
+---
+
+<header class={styles.header} data-header data-hidden-class={styles['header--hidden']}>
+  <div class={styles.header__inner}>
+    <a href={path ? home : '#top'} class={styles.header__brand}><Logo size={28} />{t('header.brand')}</a>
+    <nav id="primary-navigation" class={styles.header__navigation} data-navigation data-open-class={styles['header__navigation--open']} aria-label={t('header.navigationLabel')}>
+      {navigation.map(item => <a href={`${path ? home : ''}#${item.hash}`} class={styles.header__navLink}>{t(item.label)}</a>)}
+    </nav>
+    <div class={styles.header__controls}>
+      <button type="button" class={styles.header__menuToggle} aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle>{t('header.menu')}</button>
+      <a class={styles.header__langToggle} href={localizedPath(import.meta.env.BASE_URL, otherLocale, path)} hreflang={otherLocale} lang={otherLocale} aria-label={otherLocale === 'es' ? 'Ver en español' : 'View in English'} data-language-link>{locale.toUpperCase()}</a>
+    </div>
+  </div>
+</header>

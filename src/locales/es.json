@@ -8,7 +8,8 @@
     "navExperience": "Experiencia",
     "navProjects": "Proyectos",
     "navContact": "Contacto",
-    "menu": "Menú"
+    "menu": "Menú",
+    "navigationLabel": "Navegación principal"
   },
   "summary": {
     "eyebrow": "Desarrollador Full Stack",
@@ -70,10 +71,11 @@
     "noutImageAlt": "Vista previa de la aplicación para tomar notas Nout",
     "whatDayIsNextDescription": "Aplicación web minimalista que calcula el próximo día de la semana con un tono divertido, un flujo sencillo y una interfaz de usuario oscura y pulida.",
     "whatDayIsNextImageAlt": "Vista previa de la aplicación web What Day Is Next",
-    "webPortfolioDescription": "Portfolio personal de desarrollador construido con React 19, TypeScript, Vite y SCSS Modules.",
+    "webPortfolioDescription": "Portfolio personal de desarrollador construido con Astro, React, TypeScript y SCSS Modules, con páginas estáticas en español e inglés.",
     "webPortfolioImageAlt": "Vista previa del portfolio web",
     "sabotetrisDescription": "Una variante competitiva de Tetris con mecánicas de sabotaje: envía líneas de basura a los oponentes y sobrevive al caos.",
-    "sabotetrisImageAlt": "Vista previa del juego Sabotetris"
+    "sabotetrisImageAlt": "Vista previa del juego Sabotetris",
+    "backToProjects": "Volver a proyectos"
   },
   "contact": {
     "tagline": "Estoy abierto a trabajar en el desarrollo de productos, a puestos centrados en el front-end y a retos de ingeniería interesantes.",

@@ -58,6 +58,17 @@
 		line-height: line-height(normal);
 	}
 
+	&__titleLink {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover,
+		&:focus-visible {
+			color: color(text-hover);
+			text-decoration: underline;
+		}
+	}
+
 	&__stackList {
 		display: flex;
 		flex-wrap: wrap;
