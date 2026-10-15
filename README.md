@@ -2,6 +2,8 @@
 
 Personal portfolio built with Astro, React, TypeScript, and SCSS Modules. Astro renders the React sections to static HTML during the build. The browser receives a small navigation script for the menu and scroll controls; it does not hydrate the React tree.
 
+The migration from the Vite SPA is implemented. Astro now owns the HTML document, page routes, and build. React remains in the content sections, and the existing design tokens and SCSS Modules are preserved. Vite is still used by the tooling, but there is no standalone `vite.config.ts` or browser-side React entry point.
+
 ## Development
 
 Use Node.js 24, as specified in `.nvmrc`, and npm.
@@ -47,6 +49,8 @@ scripts/check-build.mjs               generated-page checks
 ```
 
 The existing React content components render only during compilation. Header and MainView are Astro components. There are no API endpoints that require a running server.
+
+`AGENTS.md` contains the implementation rules for this structure. Global document styles belong to `Page.astro`; component styles remain in their co-located SCSS Modules. Browser-only behavior belongs to `src/components/MainView/navigation.ts`, rather than React effects or build-time page code.
 
 ## Editing content
 
