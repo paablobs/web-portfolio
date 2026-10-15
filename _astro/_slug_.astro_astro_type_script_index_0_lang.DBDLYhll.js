@@ -1,0 +1,1 @@
+import{t as e}from"./navigation.BKpBill0.js";var t=document.querySelector(`[data-portfolio]`);t&&e(t);
