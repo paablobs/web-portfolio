@@ -10,6 +10,12 @@ const files = readdirSync(dist, { recursive: true }).filter(file => file.endsWit
 const slugs = ['nout', 'nimvo', 'sabotetris', 'web-portfolio', 'what-day-is-next']
 const featuredSlugs = ['nout', 'nimvo', 'sabotetris', 'web-portfolio']
 const caseStudySections = ['problem', 'architecture', 'decisions', 'quality', 'limitations']
+const cvFilename = 'Pablo_Bessone_CV.pdf'
+const sourceCv = readFileSync(new URL(`../public/${cvFilename}`, import.meta.url))
+const builtCv = readFileSync(new URL(cvFilename, dist))
+assert.equal(sourceCv.subarray(0, 5).toString('ascii'), '%PDF-', 'CV must be a real PDF')
+assert.ok(sourceCv.subarray(-1024).toString('ascii').includes('%%EOF'), 'CV must have a PDF end marker')
+assert.deepEqual(builtCv, sourceCv, 'Built CV must match the public PDF byte for byte')
 const catalogs = Object.fromEntries(['en', 'es'].map(locale => [locale,
   JSON.parse(readFileSync(new URL(`../src/locales/${locale}.json`, import.meta.url), 'utf8')),
 ]))
@@ -58,7 +64,9 @@ for (const file of files) {
     assert.ok(document.body.textContent.includes(catalogs[locale].summary.eyebrow), file)
     assert.ok(document.body.textContent.includes(catalogs[locale].experience.pshPeriod), file)
     const cv = document.querySelector('a[download]')
-    assert.equal(cv?.getAttribute('href'), `${base}Pablo_Bessone_CV.txt`, file)
+    assert.equal(cv?.getAttribute('href'), `${base}${cvFilename}`, file)
+    assert.equal(cv?.getAttribute('download'), cvFilename, file)
+    assert.equal(cv?.getAttribute('type'), 'application/pdf', file)
     assert.equal(cv?.textContent, catalogs[locale].summary.cv, file)
     const cards = [...document.querySelectorAll('#work article')]
     assert.equal(cards.length, featuredSlugs.length, file)

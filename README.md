@@ -62,7 +62,7 @@ Projects live in `src/data/projects.ts`: slug, title, translation keys, stack, i
 
 Each project needs `caseStudies.<slug>` paragraphs in both catalogs for `problem`, `architecture`, `decisions`, `quality` and `limitations`. Adding a catalog entry and its translations creates both detail pages and sitemap entries; `featured: true` also displays its card. The build checks list all expected slugs and the featured order explicitly; update both lists when changing the selection.
 
-The homepage links directly to the existing `public/Pablo_Bessone_CV.txt`, clearly labeled as TXT. Its content is unchanged pending review of the two PDF CVs; do not relabel a text file as PDF. No metrics, language proficiency or test execution results should be claimed without evidence.
+Both homepage languages download `public/Pablo_Bessone_CV.pdf`, a single English full stack CV with a frontend focus. Replace that PDF when updating the CV; the static checks verify its PDF markers, exact copy into `dist/`, download filename and localized button labels. The previous TXT file remains available for existing direct links but is no longer the homepage download. No metrics, language proficiency or test execution results should be claimed without evidence.
 
 Contact destinations live in `src/constants.ts`. Profile and project images live in `src/assets/`; Astro image imports expose `src`, `width`, and `height`.
 

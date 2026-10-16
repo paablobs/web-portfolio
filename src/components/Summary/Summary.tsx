@@ -23,7 +23,7 @@ const Summary = ({ language }: SummaryProps) => {
                         <a href={`${localizedPath(import.meta.env.BASE_URL, locale)}#work`} className={styles.summary__link}>
                             {t('summary.projects')}
                         </a>
-                        <a href={`${import.meta.env.BASE_URL}Pablo_Bessone_CV.txt`} download className={styles.summary__link}>
+                        <a href={`${import.meta.env.BASE_URL}Pablo_Bessone_CV.pdf`} download='Pablo_Bessone_CV.pdf' type='application/pdf' className={styles.summary__link}>
                             {t('summary.cv')}
                         </a>
                         <a href={`mailto:${EMAIL}`} className={styles.summary__link}>
