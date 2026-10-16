@@ -1,6 +1,8 @@
 # Web Portfolio
 
-Personal portfolio built with Astro, React, TypeScript, and SCSS Modules. Astro renders the React sections to static HTML during the build. The browser receives a small navigation script for the menu and scroll controls; it does not hydrate the React tree.
+Bilingual portfolio for Pablo Bessone, a full stack developer with a frontend focus and professional experience in React, TypeScript, Node.js/NestJS, APIs and ERP integrations. The homepage separates professional experience from technologies explored in personal projects; case studies document implementation, tradeoffs, testing and limitations.
+
+Built with Astro, React, TypeScript, and SCSS Modules. Astro renders the React sections to static HTML during the build. The browser receives a small navigation script for the menu and scroll controls; it does not hydrate the React tree.
 
 The migration from the Vite SPA is implemented. Astro now owns the HTML document, page routes, and build. React remains in the content sections, and the existing design tokens and SCSS Modules are preserved. Vite is still used by the tooling, but there is no standalone `vite.config.ts` or browser-side React entry point.
 
@@ -24,8 +26,8 @@ npm run preview
 
 - `/web-portfolio/`: English portfolio at the existing address, with a canonical link to `/web-portfolio/en/`.
 - `/web-portfolio/en/` and `/web-portfolio/es/`: complete, static language versions.
-- `/web-portfolio/{en,es}/projects/{slug}/`: localized pages for each featured project.
-- `/web-portfolio/sitemap.xml`: the ten canonical portfolio and project URLs.
+- `/web-portfolio/{en,es}/projects/{slug}/`: localized case studies for each project, including existing projects no longer featured on the homepage.
+- `/web-portfolio/sitemap.xml`: the twelve canonical portfolio and project URLs.
 
 The language selector links to the equivalent page in the other language. Titles, descriptions, canonical URLs, language alternates, and Open Graph images are written into each page's HTML at build time. Portfolio content, language links, and project links work without JavaScript. The mobile menu, scroll-aware header, and back-to-top enhancement use `navigation.ts`.
 
@@ -41,7 +43,7 @@ src/layouts/Page.astro                document and localized metadata
 src/components/MainView/             page composition, scroll/menu script, shared styles
 src/components/Header/               static navigation and language links
 src/components/{Summary,About,Experience,Work,Contact}/
-src/data/projects.ts                  featured project definitions
+src/data/projects.ts                  project catalog, featured selection and case-study sections
 src/i18n.ts                           translation lookup and localized URLs
 src/locales/{en,es}.json              visible text
 src/styles/                          shared SCSS tokens
@@ -56,7 +58,11 @@ The existing React content components render only during compilation. Header and
 
 Edit `src/locales/en.json` and `src/locales/es.json`, keeping their keys aligned. `translate(language)` provides `t(key)` for strings and `ta(key)` for arrays.
 
-Featured projects live in `src/data/projects.ts`: slug, title, translation keys, stack, image, repository URL, and live URL. Adding a project there and its text to both catalogs creates its card, both detail pages, and sitemap entries. The build checks list the expected project slugs explicitly; update that list when adding one.
+Projects live in `src/data/projects.ts`: slug, title, translation keys, stack, image, repository URL, live URL and a `featured` flag. The homepage features **Nout, Nimvo, Sabotetris and Web Portfolio**, in that order. What Day Is Next remains available at its existing detail URLs without appearing in the featured cards.
+
+Each project needs `caseStudies.<slug>` paragraphs in both catalogs for `problem`, `architecture`, `decisions`, `quality` and `limitations`. Adding a catalog entry and its translations creates both detail pages and sitemap entries; `featured: true` also displays its card. The build checks list all expected slugs and the featured order explicitly; update both lists when changing the selection.
+
+The homepage links directly to the existing `public/Pablo_Bessone_CV.txt`, clearly labeled as TXT. Its content is unchanged pending review of the two PDF CVs; do not relabel a text file as PDF. No metrics, language proficiency or test execution results should be claimed without evidence.
 
 Contact destinations live in `src/constants.ts`. Profile and project images live in `src/assets/`; Astro image imports expose `src`, `width`, and `height`.
 
@@ -74,6 +80,6 @@ Use `color()`, `space()`, `radius()`, `font-size()`, `font-weight()`, and `line-
 
 ## Verification and deployment
 
-Vitest covers cumulative scroll movement, direction changes, the back-to-top threshold, reduced motion, menu navigation, Escape handling, and language-link fragments. The static checks verify all eleven HTML pages, localized content, metadata, local assets and fragments, project destinations, external-link attributes, absence of hydrated React islands, and the sitemap.
+Vitest covers cumulative scroll movement, direction changes, the back-to-top threshold, reduced motion, menu navigation, Escape handling, and language-link fragments. The static checks verify all thirteen HTML pages, aligned translation keys, localized content, metadata, local assets and fragments, the CV download, featured-project order, all five case-study sections, project destinations, external-link attributes, absence of hydrated React islands, and the twelve-entry sitemap.
 
 The existing GitHub Actions workflow runs tests, build, and generated-page checks, then publishes `dist/` on pushes to `master`. Pull requests build and check without publishing. No server adapter or deployment service is required. If the hosting address changes, update `site` and `base` in `astro.config.mjs`, the portfolio live URL, and the expected URLs in the static checks.

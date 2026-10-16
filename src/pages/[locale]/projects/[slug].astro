@@ -1,7 +1,7 @@
 ---
 import Page from '../../../layouts/Page.astro'
 import Header from '../../../components/Header/Header.astro'
-import { projects } from '../../../data/projects'
+import { caseStudySections, projects } from '../../../data/projects'
 import { languages, locales, localizedPath, translate, type Locale } from '../../../i18n'
 import styles from '../../../components/MainView/MainView.module.scss'
 import projectStyles from '../../../components/Work/Work.module.scss'
@@ -11,7 +11,7 @@ export function getStaticPaths() {
 }
 const locale = Astro.params.locale as Locale
 const { project } = Astro.props
-const { t } = translate(languages[locale])
+const { t, ta } = translate(languages[locale])
 const path = `projects/${project.slug}`
 ---
 
@@ -38,6 +38,14 @@ const path = `projects/${project.slug}`
             </div>
           </div>
         </article>
+        <section class={projectStyles.work__caseStudy} aria-label={t('work.caseStudyLabel')}>
+          {caseStudySections.map(section => (
+            <section class={projectStyles.work__caseStudySection} aria-labelledby={`case-${section}`}>
+              <h2 id={`case-${section}`} class={projectStyles.work__caseStudyTitle}>{t(`work.${section}Title`)}</h2>
+              {ta(`caseStudies.${project.slug}.${section}`).map(paragraph => <p class={projectStyles.work__description}>{paragraph}</p>)}
+            </section>
+          ))}
+        </section>
       </div>
     </section>
   </main>

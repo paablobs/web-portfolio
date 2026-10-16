@@ -27,11 +27,26 @@
 	}
 
 	&__stackTitle {
+		margin: 0;
 		color: color(text-muted);
 		font-family: $base-font;
 		font-size: font-size(md);
 		font-weight: font-weight(medium);
 		text-transform: uppercase;
+	}
+
+	&__skillGroup {
+		display: flex;
+		flex-direction: column;
+		gap: space(sm);
+	}
+
+	&__groupTitle {
+		margin: 0;
+		color: color(text);
+		font-size: font-size(md);
+		font-weight: font-weight(medium);
+		line-height: line-height(normal);
 	}
 
 	&__stackList {

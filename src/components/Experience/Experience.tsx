@@ -7,7 +7,7 @@ type ExperienceProps = {
 
 interface ExperienceItem {
   id: string;
-  period: string;
+  periodKey: string;
   titleKey: string;
   company: string;
   responsibilitiesKey: string;
@@ -18,16 +18,16 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     id: 'psh',
-    period: '09/2021 — Present',
+    periodKey: 'experience.pshPeriod',
     titleKey: 'experience.pshTitle',
     company: 'We Are Psh',
     responsibilitiesKey: 'experience.pshResponsibilities',
     highlightsKey: 'experience.pshHighlights',
-    stack: ['React', 'Redux', 'TypeScript', 'NestJS', 'MySQL', 'Docker', 'Mixpanel'],
+    stack: ['React', 'Redux', 'TypeScript', 'Node.js', 'NestJS', 'REST APIs', 'MySQL', 'Docker', 'CI/CD', 'Mixpanel'],
   },
   {
     id: 'futit',
-    period: '01/2020 — 09/2021',
+    periodKey: 'experience.futitPeriod',
     titleKey: 'experience.futitTitle',
     company: 'Futit Services',
     responsibilitiesKey: 'experience.futitResponsibilities',
@@ -51,7 +51,7 @@ const Experience = ({ language }: ExperienceProps) => {
               <div className={styles.experience__dot} />
               <div className={styles.experience__card}>
                 <div className={styles.experience__header}>
-                  <span className={styles.experience__period}>{exp.period}</span>
+                  <span className={styles.experience__period}>{t(exp.periodKey)}</span>
                   <div className={styles.experience__headingGroup}>
                     <h3 className={styles.experience__title}>{t(exp.titleKey)}</h3>
                     <span className={styles.experience__company}>{exp.company}</span>

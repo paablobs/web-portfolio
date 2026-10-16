@@ -58,6 +58,28 @@
 		line-height: line-height(normal);
 	}
 
+	&__caseStudy {
+		display: flex;
+		flex-direction: column;
+		gap: space(xl);
+		max-width: 900px;
+		margin-top: space(xl2);
+	}
+
+	&__caseStudySection {
+		display: flex;
+		flex-direction: column;
+		gap: space(md);
+	}
+
+	&__caseStudyTitle {
+		margin: 0;
+		color: color(text);
+		font-size: font-size(lg);
+		font-weight: font-weight(bold);
+		line-height: line-height(snug);
+	}
+
 	&__titleLink {
 		color: inherit;
 		text-decoration: none;
@@ -93,6 +115,7 @@
 	&__actions {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 		gap: space(md);
 	}
 

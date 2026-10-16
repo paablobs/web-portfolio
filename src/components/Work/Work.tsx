@@ -1,5 +1,5 @@
 import styles from './Work.module.scss'
-import { projects } from '../../data/projects'
+import { featuredProjects } from '../../data/projects'
 import { localizedPath, translate, type Language } from '../../i18n'
 
 type WorkProps = {
@@ -12,7 +12,7 @@ const Work = ({ language }: WorkProps) => {
     return (
         <div className={styles.work}>
             <div className={styles.work__list}>
-                {projects.map(item => (
+                {featuredProjects.map(item => (
                     <article key={item.slug} className={styles.work__card}>
                         <div className={styles.work__media}>
                             <img
@@ -36,6 +36,9 @@ const Work = ({ language }: WorkProps) => {
                                 ))}
                             </ul>
                             <div className={styles.work__actions}>
+                                <a href={localizedPath(import.meta.env.BASE_URL, language === 'SPANISH' ? 'es' : 'en', `projects/${item.slug}`)} className={`${styles.work__link} ${styles['work__link--primary']}`}>
+                                    {t('work.caseStudy')}
+                                </a>
                                 <a href={item.codeUrl} target='_blank' rel='noopener noreferrer' className={styles.work__link}>
                                     {t('work.code')}
                                 </a>
@@ -43,7 +46,7 @@ const Work = ({ language }: WorkProps) => {
                                     href={item.liveUrl}
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    className={`${styles.work__link} ${styles['work__link--primary']}`}
+                                    className={styles.work__link}
                                 >
                                     {t('work.live')}
                                 </a>

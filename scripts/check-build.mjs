@@ -7,7 +7,25 @@ const dist = new URL('../dist/', import.meta.url)
 const site = 'https://paablobs.github.io'
 const base = '/web-portfolio/'
 const files = readdirSync(dist, { recursive: true }).filter(file => file.endsWith('.html'))
-const slugs = ['web-portfolio', 'nout', 'sabotetris', 'what-day-is-next']
+const slugs = ['nout', 'nimvo', 'sabotetris', 'web-portfolio', 'what-day-is-next']
+const featuredSlugs = ['nout', 'nimvo', 'sabotetris', 'web-portfolio']
+const caseStudySections = ['problem', 'architecture', 'decisions', 'quality', 'limitations']
+const catalogs = Object.fromEntries(['en', 'es'].map(locale => [locale,
+  JSON.parse(readFileSync(new URL(`../src/locales/${locale}.json`, import.meta.url), 'utf8')),
+]))
+const shape = value => Array.isArray(value) ? 'string[]'
+  : typeof value === 'object' ? Object.fromEntries(Object.entries(value).map(([key, child]) => [key, shape(child)]))
+    : typeof value
+assert.deepEqual(shape(catalogs.en), shape(catalogs.es), 'Translation catalogs must have aligned keys and value types')
+for (const [locale, catalog] of Object.entries(catalogs)) {
+  for (const slug of slugs) {
+    for (const section of caseStudySections) {
+      const paragraphs = catalog.caseStudies[slug]?.[section]
+      assert.ok(Array.isArray(paragraphs) && paragraphs.length > 0 && paragraphs.every(text => typeof text === 'string' && text.length > 20),
+        `Missing case-study paragraphs: ${locale}/${slug}/${section}`)
+    }
+  }
+}
 const expected = ['index.html', ...['en', 'es'].flatMap(locale => [
   `${locale}/index.html`, ...slugs.map(slug => `${locale}/projects/${slug}/index.html`),
 ])]
@@ -36,12 +54,32 @@ for (const file of files) {
   }
   if (!file.includes('/projects/')) {
     assert.ok(document.body.textContent.includes(locale === 'es' ? 'Sobre mí' : 'About'), file)
-    assert.ok(document.body.textContent.includes(locale === 'es' ? 'Desarrollo productos web' : 'I build reliable web products'), file)
-    for (const slug of slugs) {
-      assert.ok(document.querySelector(`a[href="${base}${locale}/projects/${slug}/"]`), file)
+    assert.equal(document.querySelector('h1')?.textContent, 'Pablo Bessone', file)
+    assert.ok(document.body.textContent.includes(catalogs[locale].summary.eyebrow), file)
+    assert.ok(document.body.textContent.includes(catalogs[locale].experience.pshPeriod), file)
+    const cv = document.querySelector('a[download]')
+    assert.equal(cv?.getAttribute('href'), `${base}Pablo_Bessone_CV.txt`, file)
+    assert.equal(cv?.textContent, catalogs[locale].summary.cv, file)
+    const cards = [...document.querySelectorAll('#work article')]
+    assert.equal(cards.length, featuredSlugs.length, file)
+    for (const [index, slug] of featuredSlugs.entries()) {
+      assert.ok(cards[index].querySelector(`h3 a[href="${base}${locale}/projects/${slug}/"]`), `Featured order: ${file}/${slug}`)
+      assert.ok(cards[index].querySelector('a').textContent.length > 0, file)
+      const caseStudyLink = [...cards[index].querySelectorAll('a')].find(link => link.textContent === catalogs[locale].work.caseStudy)
+      assert.equal(caseStudyLink?.getAttribute('href'), `${base}${locale}/projects/${slug}/`, file)
     }
+    assert.ok(!document.querySelector(`a[href="${base}${locale}/projects/what-day-is-next/"]`), file)
   } else {
     assert.ok(document.querySelector('a[href$="#work"]'), file)
+    const slug = file.split('/')[2]
+    for (const section of caseStudySections) {
+      const heading = document.getElementById(`case-${section}`)
+      assert.equal(heading?.tagName, 'H2', file)
+      assert.equal(heading?.textContent, catalogs[locale].work[`${section}Title`], file)
+      for (const paragraph of catalogs[locale].caseStudies[slug][section]) {
+        assert.ok(heading.parentElement.textContent.includes(paragraph), `${file}: ${section}`)
+      }
+    }
   }
 
   for (const element of document.querySelectorAll('[href], [src], meta[property="og:image"]')) {
@@ -67,5 +105,8 @@ for (const file of files) {
 }
 
 const sitemap = new JSDOM(readFileSync(new URL('sitemap.xml', dist), 'utf8'), { contentType: 'application/xml' }).window.document
-assert.equal(sitemap.querySelectorAll('loc').length, 10)
-console.log(`Checked ${files.length} static pages: localized content, metadata, assets, navigation, project links and sitemap.`)
+const expectedUrls = ['en', 'es'].flatMap(locale => [
+  `${site}${base}${locale}/`, ...slugs.map(slug => `${site}${base}${locale}/projects/${slug}/`),
+])
+assert.deepEqual([...sitemap.querySelectorAll('loc')].map(loc => loc.textContent).sort(), expectedUrls.sort())
+console.log(`Checked ${files.length} static pages: aligned catalogs, localized content, metadata, assets, navigation, CV download, featured order, case studies and sitemap.`)

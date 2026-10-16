@@ -1,6 +1,6 @@
 {
   "index": {
-    "htmlTitle": "Pablo Bessone - Web Portfolio"
+    "htmlTitle": "Pablo Bessone | Desarrollador Full Stack · React y TypeScript"
   },
   "header": {
     "brand": "Pablo Bessone",
@@ -12,76 +12,125 @@
     "navigationLabel": "Navegación principal"
   },
   "summary": {
-    "eyebrow": "Desarrollador Full Stack",
+    "eyebrow": "Desarrollador Full Stack · Foco frontend",
     "title": "Pablo Bessone",
-    "description": "Desarrollo productos web fiables con React, TypeScript, Node y NestJS, centrándome en la creación de interfaces de usuario limpias, frontends escalables e integraciones útiles con el backend.",
-    "email": "Email",
+    "description": "Desarrollo aplicaciones web profesionalmente desde 2020 con React, TypeScript, Node.js y NestJS. Mi experiencia incluye modernización de AngularJS, microfrontends, APIs REST e integraciones con ERP.",
+    "availability": "En Argentina (UTC−3). Abierto a oportunidades full stack, frontend y backend.",
+    "projects": "Ver proyectos",
+    "cv": "CV actual (TXT)",
+    "email": "Contactarme",
     "linkedin": "LinkedIn",
     "github": "GitHub",
-    "avatarAlt": "Pablo Bessone",
+    "avatarAlt": "Ilustración de un perezoso utilizada como avatar",
     "techStack": [
-      "React / TypeScript",
-      "Node / NestJS",
-      "Microfrontends"
+      "React / TypeScript / Redux",
+      "Node.js / NestJS / APIs REST",
+      "Microfrontends / SQL / CI/CD"
     ]
   },
   "about": {
-    "text1": "¡Hola! Soy un desarrollador full stack al que le encanta convertir ideas en aplicaciones web fiables y eficientes. Desde rediseñar pantallas de interfaz de usuario complejas hasta integrar servicios de backend y flujos de trabajo automatizados, disfruto de cada paso del proceso de desarrollo.",
-    "text2": "Trabajo principalmente con React (y Redux), TypeScript, Node (NestJS) y MySQL, y estoy en constante aprendizaje para ofrecer mejores soluciones. Me preocupo por escribir buen código, mantener una buena comunicación y facilitar las cosas a las personas con las que colaboro.",
-    "text3": "Últimamente, me he centrado especialmente en mejorar cómo utilizo la IA en mi flujo de trabajo diario para maximizar la eficiencia y la calidad del código. También colaboro en iniciativas de IA dentro de mi equipo, explorando formas prácticas de integrar estas herramientas en procesos de desarrollo reales.",
-    "text4": "Cuando no estoy programando, suelo experimentar con nuevas tecnologías, leer sobre arquitectura frontend o buscar formas más inteligentes de crear software.",
-    "stackTitle": "Stack actual"
+    "text1": "Soy desarrollador full stack con foco frontend. Desde 2020 trabajo en interfaces web, servicios backend e integraciones de negocio. Me interesa especialmente la arquitectura frontend y el trabajo de UI, y también estoy dispuesto a trabajar en APIs, bases de datos y funcionalidades de punta a punta.",
+    "text2": "En We Are Psh trabajo con React, Redux y TypeScript, modernizo pantallas de AngularJS y contribuyo a microfrontends y una biblioteca de componentes compartidos. En backend desarrollo y mantengo servicios NestJS y APIs REST conectadas a MySQL, junto con flujos de Docker y CI/CD.",
+    "text3": "Antes, en Futit Services, integré Jira y Scaleway con Openbravo/Etendo y desarrollé interfaces para WebPOS. Ese trabajo combinó bases de datos, procesos de negocio y soporte directo a clientes.",
+    "text4": "Mis proyectos personales exploran aplicaciones local-first, bases de datos en el navegador, sincronización opcional en la nube y pruebas automatizadas. Sus casos de estudio explican decisiones de implementación y límites actuales, no solamente el stack.",
+    "stackTitle": "Experiencia profesional",
+    "frontendTitle": "Frontend",
+    "backendTitle": "Backend y datos",
+    "deliveryTitle": "Entrega e integraciones",
+    "projectStackTitle": "Aplicado en proyectos personales"
   },
   "experience": {
-    "highlightsLabel": "Puntos destacados",
+    "highlightsLabel": "Contribuciones destacadas",
+    "pshPeriod": "09/2021 — Actualidad",
+    "futitPeriod": "01/2020 — 09/2021",
     "pshTitle": "Desarrollador Full Stack",
     "pshResponsibilities": [
-      "Rediseño completo de distintas páginas del proyecto, incluyendo su funcionalidad. Además, migración de parte del código antiguo de AngularJS a React/Redux.",
-      "Comunicación con el equipo de UI/UX para entender mejor el proyecto y su funcionalidad a la hora de rediseñar en Figma.",
-      "Gestión de información de usuarios enviando datos desde el frontend y/o backend a Mixpanel.",
-      "Utilización y depuración de contenedores Docker.",
-      "Trabajo con microservicios en Typescript/Nest conectados a MySQL para proveer mejor información sobre el estado de los usuarios.",
-      "Trabajo con microfrontends en Typescript/React.",
-      "Configuración y mantenimiento de pipelines de CI/CD para múltiples microservicios y microfrontends.",
-      "Desarrollo y mantenimiento de APIs RESTful.",
-      "Utilización de herramientas de IA para maximizar el rendimiento y optimizar los flujos de trabajo de desarrollo."
+      "Rediseño pantallas y migro funcionalidades de AngularJS a React y Redux, en colaboración con UI/UX sobre los diseños en Figma y el comportamiento esperado.",
+      "Implemento y mantengo microfrontends en React/TypeScript y contribuyo a la biblioteca de componentes compartidos del equipo.",
+      "Desarrollo y mantengo APIs REST y microservicios TypeScript/NestJS conectados a MySQL para consultar información del estado de los usuarios.",
+      "Integro eventos de usuarios desde frontend y backend con Mixpanel para analítica de producto.",
+      "Configuro y mantengo pipelines de CI/CD para microfrontends y microservicios, y resuelvo problemas en contenedores Docker."
     ],
     "pshHighlights": [
-      "Implementación de microfrontends y una biblioteca de componentes dentro del equipo.",
-      "Promoción de buenas prácticas y el uso de código limpio para mejorar la calidad del código.",
-      "Garantía del cumplimiento de una convención de código para mantener la consistencia y la mantenibilidad."
+      "Contribuyo tanto a la modernización de código existente como a infraestructura frontend compartida, no solo a pantallas aisladas.",
+      "Aplico convenciones de código del equipo en interfaces y servicios para mantener implementaciones consistentes y mantenibles."
     ],
     "futitTitle": "Desarrollador Full Stack",
     "futitResponsibilities": [
-      "Integración de Jira con el ERP. Sincronización de tareas, estado de las tareas y lectura de partes de horas.",
-      "Integración de Scaleway con Openbravo (también conocido como Etendo) para poder gestionar la creación de servidores desde el ERP.",
-      "Gestión de bases de datos.",
-      "Soporte directo y en vivo a clientes.",
-      "Desarrollo frontend para Openbravo WebPOS (E-Commerce)."
+      "Integré Jira con el ERP para sincronizar tareas, estados y registros de horas utilizados por el equipo de gestión.",
+      "Integré Scaleway con Openbravo/Etendo para gestionar la creación de servidores desde el ERP.",
+      "Desarrollé funcionalidades frontend para Openbravo WebPOS, trabajando sobre interfaces y flujos de comercio electrónico.",
+      "Gestioné bases de datos y brindé soporte directo a clientes sobre los flujos de las aplicaciones de negocio."
     ],
     "futitHighlights": [
-      "La integración de JIRA con el ERP facilitó el trabajo diario del equipo de gestión.",
-      "El trabajo frontend para WebPOS mejoró el rendimiento y la usabilidad para el usuario."
+      "Conecté servicios externos con flujos existentes del ERP, incorporando seguimiento de tareas y gestión de servidores a las herramientas que ya usaba el equipo.",
+      "Combiné desarrollo frontend con integraciones y contacto directo con clientes."
     ]
   },
   "work": {
-    "code": "Code",
-    "live": "Live",
-    "noutDescription": "Aplicación para tomar notas que prioriza el modo sin conexión, con edición de texto enriquecido, organización en carpetas, favoritos, recuperación de la papelera y sincronización opcional con Firebase.",
-    "noutImageAlt": "Vista previa de la aplicación para tomar notas Nout",
-    "whatDayIsNextDescription": "Aplicación web minimalista que calcula el próximo día de la semana con un tono divertido, un flujo sencillo y una interfaz de usuario oscura y pulida.",
-    "whatDayIsNextImageAlt": "Vista previa de la aplicación web What Day Is Next",
-    "webPortfolioDescription": "Portfolio personal de desarrollador construido con Astro, React, TypeScript y SCSS Modules, con páginas estáticas en español e inglés.",
+    "code": "Código fuente",
+    "live": "Ver aplicación",
+    "caseStudy": "Leer caso de estudio",
+    "noutDescription": "Notas offline-first con sincronización opcional en Firestore. Persistencia mediante repositorios, migración al iniciar sesión, pruebas de permisos Firebase y flujos E2E con Playwright.",
+    "noutImageAlt": "Vista previa de la aplicación de notas Nout",
+    "nimvoDescription": "Finanzas personales local-first con SQLite WebAssembly en un Web Worker, exportación de archivos cifrados, cálculos en centavos enteros y pruebas automatizadas.",
+    "nimvoImageAlt": "Portada de Nimvo: finanzas personales locales en un archivo cifrado",
+    "whatDayIsNextDescription": "Una pequeña aplicación React que calcula el próximo día de la semana, con un tono divertido y una interfaz oscura enfocada en una sola interacción.",
+    "whatDayIsNextImageAlt": "Vista previa de la aplicación What Day Is Next",
+    "webPortfolioDescription": "Portfolio bilingüe generado como HTML estático con Astro y React. Rutas localizadas, casos de estudio, metadatos y comprobaciones automatizadas de navegación y build.",
     "webPortfolioImageAlt": "Vista previa del portfolio web",
-    "sabotetrisDescription": "Una variante competitiva de Tetris con mecánicas de sabotaje: envía líneas de basura a los oponentes y sobrevive al caos.",
+    "sabotetrisDescription": "Juego estilo Tetris con efectos de caos progresivos y rankings locales y globales. React, Excalibur.js y backend Supabase/PostgreSQL con Edge Functions.",
     "sabotetrisImageAlt": "Vista previa del juego Sabotetris",
-    "backToProjects": "Volver a proyectos"
+    "backToProjects": "Volver a proyectos",
+    "caseStudyLabel": "Caso de estudio técnico",
+    "problemTitle": "Problema y alcance",
+    "architectureTitle": "Implementación y arquitectura",
+    "decisionsTitle": "Decisiones y compromisos",
+    "qualityTitle": "Pruebas y verificación",
+    "limitationsTitle": "Limitaciones actuales"
+  },
+  "caseStudies": {
+    "nout": {
+      "problem": ["Tomar y organizar notas con texto enriquecido sin exigir una cuenta, ofreciendo sincronización en la nube a quienes inicien sesión."],
+      "architecture": ["React y TypeScript resuelven la interfaz, TipTap la edición de texto y los adaptadores de repositorio separan las operaciones de notas y carpetas de la persistencia en localStorage y Firestore.", "Los datos locales se migran cuando el usuario inicia sesión por primera vez. La migración compara fechas de edición, procesa escrituras por lotes y registra qué elementos se migraron."],
+      "decisions": ["La persistencia local permite que crear una cuenta sea opcional. Mantener datos locales y remotos agrega responsabilidades de migración y reconciliación que una interfaz CRUD exclusivamente en la nube no tendría.", "La migración espera las ediciones encoladas y recalcula los cambios pendientes antes de confirmar escrituras. Prevalecen las ediciones más recientes: es reconciliación por fecha, no combinación colaborativa de texto."],
+      "quality": ["Las pruebas con Vitest cubren la capa de datos. Las pruebas con emuladores Firebase comprueban reglas de seguridad, aislamiento entre usuarios e integración de repositorios. Playwright cubre flujos de navegador en modo exclusivamente local.", "El workflow de CI está configurado para ejecutar lint, formato, build, pruebas unitarias, Firebase y E2E. La suite E2E local no cubre exhaustivamente la sincronización en la nube."],
+      "limitations": ["Las notas exclusivamente locales dependen del almacenamiento del navegador. La sincronización en la nube requiere una cuenta y conectividad, y los fallos necesitan manejo explícito.", "La reconciliación por fecha no conserva ambas versiones de cada edición en conflicto. El proyecto no garantiza edición colaborativa sin pérdidas ni recuperación ante cualquier fallo de red."]
+    },
+    "nimvo": {
+      "problem": ["Administrar ingresos, gastos fijos y gastos diarios sin cuentas ni una base remota. Mantener los datos financieros en un archivo protegido con contraseña y bajo control del usuario."],
+      "architecture": ["React llama a un protocolo tipado de worker en lugar de ejecutar SQL desde los componentes. Un Web Worker ejecuta sql.js/SQLite en memoria, con repositorios de dominio, transacciones y migraciones versionadas.", "La base se exporta a un contenedor .nimvo versionado mediante Web Crypto: AES-256-GCM y PBKDF2-HMAC-SHA-256. Los datos financieros no se guardan en localStorage; las preferencias de presentación sí."],
+      "decisions": ["Los importes usan centavos enteros en lugar de aritmética de punto flotante. Marcar un gasto fijo como pagado cambia su estado pendiente, no el saldo, porque su importe ya estaba reservado.", "El archivo local evita alojar los datos financieros en un servicio, pero deja el guardado, los respaldos y la custodia de la contraseña a cargo del usuario. Chromium permite escribir en un archivo elegido; otros navegadores pueden descargar una copia."],
+      "quality": ["Vitest y React Testing Library cubren cálculos monetarios, repositorios, migraciones, contenedores cifrados y componentes. Las suites Playwright cubren flujos en Chromium y Firefox, archivos, navegación con teclado y comprobaciones básicas de accesibilidad.", "Las pruebas incluyen archivos alterados o truncados y contraseñas incorrectas, no solo cifrado y descifrado exitosos. Las comprobaciones automatizadas no equivalen a una auditoría de seguridad independiente."],
+      "limitations": ["Sin sincronización propia, colaboración ni recuperación de contraseña. Los cambios sin guardar pueden perderse y no se reconcilian ediciones paralelas de copias del archivo.", "Una pestaña completamente cargada puede operar sin red, pero no hay service worker ni caché PWA: abrir o recargar la aplicación sigue requiriendo que el host esté disponible."]
+    },
+    "sabotetris": {
+      "problem": ["Construir un juego de navegador estilo Tetris con efectos de caos temporizados, modos softcore y hardcore, y rankings locales independientes de la tabla online."],
+      "architecture": ["Una interfaz React rodea al motor de juego Excalibur.js/TypeScript. Los efectos de caos se eligen de un conjunto que se habilita según el nivel actual.", "Los rankings globales usan autenticación anónima de Supabase, Edge Functions para crear y enviar partidas, y PostgreSQL para persistencia y consultas de clasificación. El historial local se mantiene separado de los envíos online."],
+      "decisions": ["Preparar una partida online antes de jugar en lugar de subir cualquier resultado del historial local. Validar los envíos del lado del servidor y usar límites de solicitudes e idempotencia para reducir abuso y duplicados.", "Mantener el juego local cuando los servicios online están deshabilitados o fallan. Separar los rankings por modo para no mezclar reglas distintas."],
+      "quality": ["Las pruebas de regresión con Node comprueban límites del ranking, fallos de almacenamiento, modo sin servicios online, CAPTCHA de invitados y continuidad local ante fallos de conexión.", "El repositorio también ofrece pruebas PostgreSQL, chequeo de tipos de Edge Functions, lint y build. Son comprobaciones separadas para navegador, frontera de servicios y base de datos."],
+      "limitations": ["Los puntajes se calculan en el cliente. La validación del servidor y los límites de solicitudes reducen el abuso, pero no convierten el ranking en un sistema competitivo autoritativo o a prueba de trampas.", "Publicar online requiere conexión y una partida preparada antes de jugar. No se suben resultados locales retroactivamente. No es un juego multijugador entre oponentes."]
+    },
+    "web-portfolio": {
+      "problem": ["Presentar experiencia profesional y proyectos técnicos en español e inglés, con contenido disponible de inmediato y navegable sin JavaScript."],
+      "architecture": ["Astro gestiona metadatos, rutas localizadas y generación del sitio. Las secciones React se renderizan durante el build sin islas hidratadas; los SCSS Modules comparten tokens de diseño.", "Un catálogo de proyectos alimenta tarjetas, rutas de casos de estudio y sitemap. Un pequeño script mejora el menú móvil, los enlaces de idioma y los controles de desplazamiento."],
+      "decisions": ["El renderizado estático evita depender del arranque de React en el navegador para leer el contenido. La URL raíz existente se conserva y declara la versión inglesa como canónica.", "El selector de idioma enlaza a la página localizada equivalente. Las URLs de proyectos existentes siguen disponibles aunque dejen de destacarse en el inicio."],
+      "quality": ["Vitest comprueba el menú, Escape, umbrales de desplazamiento, movimiento reducido y fragmentos en enlaces de idioma.", "Las comprobaciones del HTML generado revisan contenido localizado, URLs canónicas y alternativas, imágenes, enlaces internos, descarga del CV, casos de estudio, sitemap y ausencia de islas React hidratadas."],
+      "limitations": ["Actualizar contenido requiere recompilar. No hay CMS ni backend de formulario; el contacto se realiza por email y perfiles profesionales.", "Las descripciones y configuraciones de pruebas están documentadas en los repositorios. El sitio no ofrece reportes de ejecución de pruebas ni analítica de uso en vivo."]
+    },
+    "what-day-is-next": {
+      "problem": ["Ofrecer una pequeña interfaz lúdica para calcular el próximo día de la semana."],
+      "architecture": ["React y TypeScript resuelven la interfaz, con componentes Chakra UI y build Vite."],
+      "decisions": ["Mantener una interacción acotada y fácil de entender. Este proyecto pequeño de UI se conserva como ejemplo adicional, no como la principal evidencia de ingeniería full stack."],
+      "quality": ["El repositorio permite revisar la interfaz y el cálculo de días. Este caso de estudio no afirma contar con cobertura automatizada de pruebas."],
+      "limitations": ["Aplicación deliberadamente pequeña y exclusivamente frontend: no demuestra servicios backend, persistencia ni comportamiento de sistemas distribuidos."]
+    }
   },
   "contact": {
-    "tagline": "Estoy abierto a trabajar en el desarrollo de productos, a puestos centrados en el front-end y a retos de ingeniería interesantes.",
+    "tagline": "Abierto a roles full stack, frontend y backend. Mi mayor foco está en React y TypeScript, con experiencia profesional en servicios NestJS, SQL e integraciones.",
     "linkedin": "LinkedIn",
     "github": "GitHub",
-    "location": "Argentina"
+    "location": "Argentina · UTC−3"
   },
   "mainView": {
     "sectionAbout": "// Sobre mí",
