@@ -5,6 +5,7 @@ const skillGroups = [
     { titleKey: 'about.frontendTitle', skills: ['JavaScript', 'TypeScript', 'React', 'Redux', 'Microfrontends'] },
     { titleKey: 'about.backendTitle', skills: ['Node.js', 'NestJS', 'REST APIs', 'MySQL', 'PostgreSQL'] },
     { titleKey: 'about.deliveryTitle', skills: ['Docker', 'CI/CD', 'Mixpanel', 'Jira', 'Openbravo / Etendo'] },
+    { titleKey: 'about.aiTitle', skills: ['AI / LLM integration', 'Guardrails', 'PII anonymization', 'LLM evaluations'] },
 ]
 const projectSkills = ['Firestore', 'SQLite / WebAssembly', 'Web Workers', 'Web Crypto', 'Vitest', 'React Testing Library', 'Playwright', 'GitHub Actions']
 

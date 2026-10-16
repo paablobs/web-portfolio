@@ -62,7 +62,7 @@ Projects live in `src/data/projects.ts`: slug, title, translation keys, stack, i
 
 Each project needs `caseStudies.<slug>` paragraphs in both catalogs for `problem`, `architecture`, `decisions`, `quality` and `limitations`. Adding a catalog entry and its translations creates both detail pages and sitemap entries; `featured: true` also displays its card. The build checks list all expected slugs and the featured order explicitly; update both lists when changing the selection.
 
-Both homepage languages download `public/Pablo_Bessone_CV.pdf`, a single English full stack CV with a frontend focus. Replace that PDF when updating the CV; the static checks verify its PDF markers, exact copy into `dist/`, download filename and localized button labels. The previous TXT file remains available for existing direct links but is no longer the homepage download. No metrics, language proficiency or test execution results should be claimed without evidence.
+The CV is available only on request through email or LinkedIn, not as a public download. Do not add CV files to `public/` or links to those files. Static checks reject the previous PDF/TXT assets in both `public/` and `dist/`, reject download links, and verify the contact options. Removing files from the deployed site does not erase previous Git revisions, caches or copies already downloaded. No metrics, language proficiency or test execution results should be claimed without evidence.
 
 Contact destinations live in `src/constants.ts`. Profile and project images live in `src/assets/`; Astro image imports expose `src`, `width`, and `height`.
 
@@ -80,6 +80,6 @@ Use `color()`, `space()`, `radius()`, `font-size()`, `font-weight()`, and `line-
 
 ## Verification and deployment
 
-Vitest covers cumulative scroll movement, direction changes, the back-to-top threshold, reduced motion, menu navigation, Escape handling, and language-link fragments. The static checks verify all thirteen HTML pages, aligned translation keys, localized content, metadata, local assets and fragments, the CV download, featured-project order, all five case-study sections, project destinations, external-link attributes, absence of hydrated React islands, and the twelve-entry sitemap.
+Vitest covers cumulative scroll movement, direction changes, the back-to-top threshold, reduced motion, menu navigation, Escape handling, and language-link fragments. The static checks verify all thirteen HTML pages, aligned translation keys, localized content, metadata, local assets and fragments, absence of public CV files and download links, contact options, featured-project order, all five case-study sections, project destinations, external-link attributes, absence of hydrated React islands, and the twelve-entry sitemap.
 
 The existing GitHub Actions workflow runs tests, build, and generated-page checks, then publishes `dist/` on pushes to `master`. Pull requests build and check without publishing. No server adapter or deployment service is required. If the hosting address changes, update `site` and `base` in `astro.config.mjs`, the portfolio live URL, and the expected URLs in the static checks.

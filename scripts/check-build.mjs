@@ -10,12 +10,11 @@ const files = readdirSync(dist, { recursive: true }).filter(file => file.endsWit
 const slugs = ['nout', 'nimvo', 'sabotetris', 'web-portfolio', 'what-day-is-next']
 const featuredSlugs = ['nout', 'nimvo', 'sabotetris', 'web-portfolio']
 const caseStudySections = ['problem', 'architecture', 'decisions', 'quality', 'limitations']
-const cvFilename = 'Pablo_Bessone_CV.pdf'
-const sourceCv = readFileSync(new URL(`../public/${cvFilename}`, import.meta.url))
-const builtCv = readFileSync(new URL(cvFilename, dist))
-assert.equal(sourceCv.subarray(0, 5).toString('ascii'), '%PDF-', 'CV must be a real PDF')
-assert.ok(sourceCv.subarray(-1024).toString('ascii').includes('%%EOF'), 'CV must have a PDF end marker')
-assert.deepEqual(builtCv, sourceCv, 'Built CV must match the public PDF byte for byte')
+const privateCvFiles = ['Pablo_Bessone_CV.pdf', 'Pablo_Bessone_CV.txt']
+for (const filename of privateCvFiles) {
+  assert.ok(!existsSync(new URL(`../public/${filename}`, import.meta.url)), `CV must not be publicly served: ${filename}`)
+  assert.ok(!existsSync(new URL(filename, dist)), `CV must not be included in the build: ${filename}`)
+}
 const catalogs = Object.fromEntries(['en', 'es'].map(locale => [locale,
   JSON.parse(readFileSync(new URL(`../src/locales/${locale}.json`, import.meta.url), 'utf8')),
 ]))
@@ -50,6 +49,10 @@ for (const file of files) {
   assert.ok(document.querySelector('meta[name="description"]')?.content.length > 30, file)
   assert.equal(document.querySelectorAll('h1').length, 1, file)
   assert.equal(document.querySelector('astro-island'), null, `Unexpected client hydration: ${file}`)
+  assert.equal(document.querySelector('a[download]'), null, `Unexpected download link: ${file}`)
+  for (const filename of privateCvFiles) {
+    assert.equal(document.querySelector(`a[href*="${filename}"]`), null, `Unexpected public CV link: ${file}`)
+  }
 
   const alternateLanguage = locale === 'es' ? 'en' : 'es'
   const alternatePath = canonicalPath.replace(/^(en|es)\//, `${alternateLanguage}/`)
@@ -63,11 +66,24 @@ for (const file of files) {
     assert.equal(document.querySelector('h1')?.textContent, 'Pablo Bessone', file)
     assert.ok(document.body.textContent.includes(catalogs[locale].summary.eyebrow), file)
     assert.ok(document.body.textContent.includes(catalogs[locale].experience.pshPeriod), file)
-    const cv = document.querySelector('a[download]')
-    assert.equal(cv?.getAttribute('href'), `${base}${cvFilename}`, file)
-    assert.equal(cv?.getAttribute('download'), cvFilename, file)
-    assert.equal(cv?.getAttribute('type'), 'application/pdf', file)
-    assert.equal(cv?.textContent, catalogs[locale].summary.cv, file)
+    assert.ok(document.body.textContent.includes(catalogs[locale].summary.description), file)
+    const experience = document.getElementById('experience')
+    for (const employer of ['psh', 'futit']) {
+      for (const group of ['Responsibilities', 'Highlights']) {
+        for (const contribution of catalogs[locale].experience[`${employer}${group}`]) {
+          assert.ok(experience?.textContent.includes(contribution), `Missing professional contribution: ${file}/${employer}/${group}`)
+        }
+      }
+    }
+    const about = document.getElementById('about')
+    assert.ok(about?.textContent.includes(catalogs[locale].about.aiTitle), file)
+    for (const skill of ['AI / LLM integration', 'Guardrails', 'PII anonymization', 'LLM evaluations']) {
+      assert.ok(about?.textContent.includes(skill), `Missing professional AI skill: ${file}/${skill}`)
+    }
+    const contact = document.getElementById('contact')
+    assert.ok(contact?.textContent.includes(catalogs[locale].contact.tagline), file)
+    assert.ok(contact?.querySelector('a[href^="mailto:"]'), `Missing email contact: ${file}`)
+    assert.ok(contact?.querySelector('a[href="https://www.linkedin.com/in/pablobessone/"]'), `Missing LinkedIn contact: ${file}`)
     const cards = [...document.querySelectorAll('#work article')]
     assert.equal(cards.length, featuredSlugs.length, file)
     for (const [index, slug] of featuredSlugs.entries()) {
@@ -117,4 +133,4 @@ const expectedUrls = ['en', 'es'].flatMap(locale => [
   `${site}${base}${locale}/`, ...slugs.map(slug => `${site}${base}${locale}/projects/${slug}/`),
 ])
 assert.deepEqual([...sitemap.querySelectorAll('loc')].map(loc => loc.textContent).sort(), expectedUrls.sort())
-console.log(`Checked ${files.length} static pages: aligned catalogs, localized content, metadata, assets, navigation, CV download, featured order, case studies and sitemap.`)
+console.log(`Checked ${files.length} static pages: aligned catalogs, localized content, metadata, assets, navigation, CV privacy, contact links, featured order, case studies and sitemap.`)

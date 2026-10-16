@@ -14,10 +14,9 @@
   "summary": {
     "eyebrow": "Desarrollador Full Stack · Foco frontend",
     "title": "Pablo Bessone",
-    "description": "Desarrollo aplicaciones web profesionalmente desde 2020 con React, TypeScript, Node.js y NestJS. Mi experiencia incluye modernización de AngularJS, microfrontends, APIs REST e integraciones con ERP.",
+    "description": "Desarrollo aplicaciones web profesionalmente desde 2020 con React, TypeScript, Node.js y NestJS. Mi experiencia abarca modernización frontend, APIs REST, integraciones ERP y un chatbot con IA en producción.",
     "availability": "En Argentina (UTC−3). Abierto a oportunidades full stack, frontend y backend.",
     "projects": "Ver proyectos",
-    "cv": "Descargar CV (PDF)",
     "email": "Contactarme",
     "linkedin": "LinkedIn",
     "github": "GitHub",
@@ -30,13 +29,14 @@
   },
   "about": {
     "text1": "Soy desarrollador full stack con foco frontend. Desde 2020 trabajo en interfaces web, servicios backend e integraciones de negocio. Me interesa especialmente la arquitectura frontend y el trabajo de UI, y también estoy dispuesto a trabajar en APIs, bases de datos y funcionalidades de punta a punta.",
-    "text2": "En We Are Psh trabajo con React, Redux y TypeScript, modernizo pantallas de AngularJS y contribuyo a microfrontends y una biblioteca de componentes compartidos. En backend desarrollo y mantengo servicios NestJS y APIs REST conectadas a MySQL, junto con flujos de Docker y CI/CD.",
+    "text2": "En We Are Psh trabajo con React, Redux y TypeScript, modernizo pantallas de AngularJS y contribuyo a microfrontends y una biblioteca de componentes compartidos. En backend desarrollo y mantengo servicios NestJS y APIs REST conectadas a MySQL, junto con flujos de Docker y CI/CD. También incorporé un chatbot en producción con guardrails de comportamiento, anonimización de datos personales (PII) y evaluaciones.",
     "text3": "Antes, en Futit Services, integré Jira y Scaleway con Openbravo/Etendo y desarrollé interfaces para WebPOS. Ese trabajo combinó bases de datos, procesos de negocio y soporte directo a clientes.",
     "text4": "Mis proyectos personales exploran aplicaciones local-first, bases de datos en el navegador, sincronización opcional en la nube y pruebas automatizadas. Sus casos de estudio explican decisiones de implementación y límites actuales, no solamente el stack.",
     "stackTitle": "Experiencia profesional",
     "frontendTitle": "Frontend",
     "backendTitle": "Backend y datos",
     "deliveryTitle": "Entrega e integraciones",
+    "aiTitle": "IA aplicada",
     "projectStackTitle": "Aplicado en proyectos personales"
   },
   "experience": {
@@ -46,6 +46,8 @@
     "pshTitle": "Desarrollador Full Stack",
     "pshResponsibilities": [
       "Rediseño pantallas y migro funcionalidades de AngularJS a React y Redux, en colaboración con UI/UX sobre los diseños en Figma y el comportamiento esperado.",
+      "Incorporé de punta a punta un chatbot en producción a una plataforma educativa existente con IA: interfaz de chat, endpoints backend, integración con el modelo, historial de conversaciones y streaming.",
+      "Implementé guardrails de comportamiento definidos en Markdown y anonimización de datos personales (PII) de estudiantes y docentes. Validé el comportamiento con evaluaciones automatizadas, escenarios adversariales, revisiones manuales y feedback, cubriendo respuestas inapropiadas, prompt injection y divulgación de información sensible.",
       "Implemento y mantengo microfrontends en React/TypeScript y contribuyo a la biblioteca de componentes compartidos del equipo.",
       "Desarrollo y mantengo APIs REST y microservicios TypeScript/NestJS conectados a MySQL para consultar información del estado de los usuarios.",
       "Integro eventos de usuarios desde frontend y backend con Mixpanel para analítica de producto.",
@@ -115,7 +117,7 @@
       "problem": ["Presentar experiencia profesional y proyectos técnicos en español e inglés, con contenido disponible de inmediato y navegable sin JavaScript."],
       "architecture": ["Astro gestiona metadatos, rutas localizadas y generación del sitio. Las secciones React se renderizan durante el build sin islas hidratadas; los SCSS Modules comparten tokens de diseño.", "Un catálogo de proyectos alimenta tarjetas, rutas de casos de estudio y sitemap. Un pequeño script mejora el menú móvil, los enlaces de idioma y los controles de desplazamiento."],
       "decisions": ["El renderizado estático evita depender del arranque de React en el navegador para leer el contenido. La URL raíz existente se conserva y declara la versión inglesa como canónica.", "El selector de idioma enlaza a la página localizada equivalente. Las URLs de proyectos existentes siguen disponibles aunque dejen de destacarse en el inicio."],
-      "quality": ["Vitest comprueba el menú, Escape, umbrales de desplazamiento, movimiento reducido y fragmentos en enlaces de idioma.", "Las comprobaciones del HTML generado revisan contenido localizado, URLs canónicas y alternativas, imágenes, enlaces internos, descarga del CV, casos de estudio, sitemap y ausencia de islas React hidratadas."],
+      "quality": ["Vitest comprueba el menú, Escape, umbrales de desplazamiento, movimiento reducido y fragmentos en enlaces de idioma.", "Las comprobaciones del HTML generado revisan contenido localizado, URLs canónicas y alternativas, imágenes, enlaces internos, ausencia de archivos públicos del CV y enlaces de descarga, casos de estudio, sitemap y ausencia de islas React hidratadas."],
       "limitations": ["Actualizar contenido requiere recompilar. No hay CMS ni backend de formulario; el contacto se realiza por email y perfiles profesionales.", "Las descripciones y configuraciones de pruebas están documentadas en los repositorios. El sitio no ofrece reportes de ejecución de pruebas ni analítica de uso en vivo."]
     },
     "what-day-is-next": {

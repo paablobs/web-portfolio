@@ -14,10 +14,9 @@
   "summary": {
     "eyebrow": "Full Stack Developer · Frontend focus",
     "title": "Pablo Bessone",
-    "description": "Building web applications professionally since 2020 with React, TypeScript, Node.js and NestJS. My experience includes AngularJS modernization, microfrontends, REST APIs and ERP integrations.",
+    "description": "Building web applications professionally since 2020 with React, TypeScript, Node.js and NestJS. My experience spans frontend modernization, REST APIs, ERP integrations and a production AI chatbot.",
     "availability": "Based in Argentina (UTC−3). Open to full stack, frontend and backend opportunities.",
     "projects": "Explore projects",
-    "cv": "Download CV (PDF)",
     "email": "Contact me",
     "linkedin": "LinkedIn",
     "github": "GitHub",
@@ -30,13 +29,14 @@
   },
   "about": {
     "text1": "I'm a full stack developer with a frontend focus. Since 2020, I've worked on web interfaces, backend services and business integrations. I enjoy frontend architecture and UI work, and I'm equally willing to work on APIs, databases and end-to-end features.",
-    "text2": "At We Are Psh, I work with React, Redux and TypeScript, modernize AngularJS screens, and contribute to microfrontends and a shared component library. On the backend, I develop and maintain NestJS services and REST APIs connected to MySQL, alongside Docker and CI/CD workflows.",
+    "text2": "At We Are Psh, I work with React, Redux and TypeScript, modernize AngularJS screens, and contribute to microfrontends and a shared component library. On the backend, I develop and maintain NestJS services and REST APIs connected to MySQL, alongside Docker and CI/CD workflows. I also delivered a production chatbot with behavioral guardrails, PII anonymization and evaluations.",
     "text3": "Previously, at Futit Services, I integrated Jira and Scaleway with Openbravo/Etendo and developed WebPOS interfaces. That work involved databases, business workflows and direct client support.",
     "text4": "My personal projects explore local-first applications, browser-based databases, optional cloud synchronization and automated testing. Their case studies explain the implementation choices and current limitations, not just the technology stack.",
     "stackTitle": "Professional experience",
     "frontendTitle": "Frontend",
     "backendTitle": "Backend & data",
     "deliveryTitle": "Delivery & integrations",
+    "aiTitle": "Applied AI",
     "projectStackTitle": "Applied in personal projects"
   },
   "experience": {
@@ -46,6 +46,8 @@
     "pshTitle": "Full Stack Developer",
     "pshResponsibilities": [
       "Redesign application screens and migrate AngularJS functionality to React and Redux, collaborating with UI/UX on Figma designs and expected behavior.",
+      "Delivered an end-to-end production chatbot within an existing AI-powered educational platform, implementing the chat interface, backend endpoints, model integration, conversation history and streaming.",
+      "Implemented Markdown-defined behavioral guardrails and PII anonymization for student and teacher data. Validated behavior through automated evaluations, adversarial scenarios, manual reviews and feedback, covering inappropriate responses, prompt injection and sensitive-information disclosure.",
       "Implement and maintain React/TypeScript microfrontends and contribute to the team's shared component library.",
       "Develop and maintain REST APIs and TypeScript/NestJS microservices connected to MySQL for user-status information.",
       "Integrate frontend and backend user events with Mixpanel for product analytics.",
@@ -115,7 +117,7 @@
       "problem": ["Present professional experience and engineering projects in English and Spanish, with content that is available immediately and navigable without JavaScript."],
       "architecture": ["Astro owns document metadata, localized routes and build output. React sections render at build time without hydrated islands; SCSS Modules share design tokens.", "A project catalog supplies cards, localized case-study routes and sitemap entries. A small browser script enhances the mobile menu, language links and scroll controls."],
       "decisions": ["Static rendering keeps the content independent of client-side React startup. The existing root URL remains available and points canonically to the English version.", "Language selection links to the equivalent localized page. Existing project URLs remain available even when they are no longer featured on the homepage."],
-      "quality": ["Vitest tests cover menu behavior, Escape handling, scroll thresholds, reduced motion and language-link fragments.", "Generated-HTML checks inspect localized content, canonical and alternate URLs, images, internal links, CV download, case studies, sitemap entries and the absence of hydrated React islands."],
+      "quality": ["Vitest tests cover menu behavior, Escape handling, scroll thresholds, reduced motion and language-link fragments.", "Generated-HTML checks inspect localized content, canonical and alternate URLs, images, internal links, absence of public CV files and download links, case studies, sitemap entries and the absence of hydrated React islands."],
       "limitations": ["Content updates require a rebuild. There is no CMS or contact-form backend; contact is through email and professional profile links.", "Project descriptions and test configurations are documented in the source repositories. This site does not provide live test-run reports or usage analytics."]
     },
     "what-day-is-next": {
