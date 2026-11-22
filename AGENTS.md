@@ -1,6 +1,6 @@
 # Portfolio agent instructions
 
-Static personal portfolio built with Astro, React 19, TypeScript, and SCSS Modules. The Astro migration is implemented. Read `README.md` for routes, content editing, and deployment.
+Static personal portfolio built with Astro, React 19, TypeScript, and SCSS Modules. Astro owns the HTML document, page routes, and build. React remains in the content sections, rendered to static HTML during the build; the browser receives only a small navigation script for the menu and scroll controls and does not hydrate the React tree. Vite is used by the tooling, but there is no standalone `vite.config.ts` or browser-side React entry point. The migration from the Vite SPA is complete. `README.md` only describes what the project is; everything technical lives here.
 
 ## Commands
 
@@ -15,6 +15,17 @@ npm run build         # Astro type checks, then static build into dist/
 npm run test:static   # inspect generated HTML; requires build first
 npm run preview       # serve the production build under /web-portfolio/
 ```
+
+`build` runs Astro's TypeScript diagnostics before generating `dist/`. `test:static` checks the generated HTML, so run it after building. `dev` and `preview` serve the site under `/web-portfolio/`.
+
+## Routes and metadata
+
+- `/web-portfolio/`: English portfolio at the existing address, with a canonical link to `/web-portfolio/en/`.
+- `/web-portfolio/en/` and `/web-portfolio/es/`: complete, static language versions.
+- `/web-portfolio/{en,es}/projects/{slug}/`: localized case studies for each project, including existing projects no longer featured on the homepage.
+- `/web-portfolio/sitemap.xml`: the twelve canonical portfolio and project URLs.
+
+The language selector links to the equivalent page in the other language. Titles, descriptions, canonical URLs, language alternates, and Open Graph images are written into each page's HTML at build time. Portfolio content, language links, and project links work without JavaScript. The mobile menu, scroll-aware header, and back-to-top enhancement use `navigation.ts`. There are no API endpoints that require a running server.
 
 ## Architecture
 
@@ -58,15 +69,29 @@ Each component lives in its own folder with a co-located `.module.scss`. No glob
 - The existing root address renders English with a canonical link to `/en/`. Include only canonical localized routes in the sitemap.
 - Astro image imports expose metadata; use `.src`, `.width`, and `.height` when rendering them in React sections.
 
+## Editing content
+
+- Edit `src/locales/en.json` and `src/locales/es.json`, keeping their keys aligned. `translate(language)` provides `t(key)` for strings and `ta(key)` for arrays.
+- Projects live in `src/data/projects.ts`: slug, title, translation keys, stack, image, repository URL, live URL and a `featured` flag. The homepage features **Nout, Nimvo, Sabotetris and Web Portfolio**, in that order. What Day Is Next remains available at its existing detail URLs without appearing in the featured cards.
+- Each project needs `caseStudies.<slug>` paragraphs in both catalogs for `problem`, `architecture`, `decisions`, `quality` and `limitations`. Adding a catalog entry and its translations creates both detail pages and sitemap entries; `featured: true` also displays its card. The build checks list all expected slugs and the featured order explicitly; update both lists when changing the selection.
+- Contact destinations live in `src/constants.ts`. Profile and project images live in `src/assets/`.
+- To add a language, extend `locales`, `languages`, and `translations` in `src/i18n.ts`, add its catalog, and update the alternate-language navigation, metadata, and static checks, which currently target English and Spanish.
+
+### CV privacy
+
+The CV is available only on request through email or LinkedIn, not as a public download. Do not add CV files to `public/` or links to those files. Static checks reject the previous PDF/TXT assets in both `public/` and `dist/`, reject download links, and verify the contact options. Removing files from the deployed site does not erase previous Git revisions, caches or copies already downloaded. Do not claim metrics, language proficiency or test execution results without evidence.
+
 ## Verification and deployment
 
 After code changes, run lint, navigation tests, build, and `test:static`, in that order for the last two commands. Documentation-only edits need a diff check rather than a full build.
 
 For navigation, language, layout, or styling changes, also check desktop and phone layouts. Verify the mobile menu, equivalent-page language links, project links, and content navigation without JavaScript.
 
-The current build has eleven HTML pages and ten canonical sitemap entries. Static checks validate localized content, metadata, assets, links, fragments, and absence of hydrated React islands.
+Vitest covers cumulative scroll movement, direction changes, the back-to-top threshold, reduced motion, menu navigation, Escape handling, and language-link fragments.
 
-GitHub Actions builds pull requests and publishes `dist/` on pushes to `master`. Keep this output directory and the base path aligned with the workflow. Do not commit generated `dist/` or `.astro/` files.
+The current build has thirteen HTML pages and twelve canonical sitemap entries. Static checks validate all pages, aligned translation keys, localized content, metadata, local assets and fragments, absence of public CV files and download links, contact options, featured-project order, all five case-study sections, project destinations, external-link attributes, absence of hydrated React islands, and the sitemap.
+
+GitHub Actions (`.github/workflows/deploy.yml`) runs tests, build, and generated-page checks, then publishes `dist/` on pushes to `master`. Pull requests build and check without publishing. No server adapter or deployment service is required. Keep the output directory and the base path aligned with the workflow. If the hosting address changes, update `site` and `base` in `astro.config.mjs`, the portfolio live URL, and the expected URLs in the static checks. Do not commit generated `dist/` or `.astro/` files.
 
 ## SCSS / Styling Rules
 
